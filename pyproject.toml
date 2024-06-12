@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "HorizonPair"
+version = "0.0.1"
+authors = [
+    {name = "Nicolas Vaagen"},
+]
+maintainers = [
+    {name = "Nicolas Vaagen"},
+]
+description = "CFC Swiss pairing software for chess tournaments."
+
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/nicvagn/HorizonPair.git"
