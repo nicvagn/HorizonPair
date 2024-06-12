@@ -1,0 +1,3 @@
+[submodule "src/bbpPairings"]
+	path = src/bbpPairings
+	url = https://github.com/nicvagn/bbpPairings

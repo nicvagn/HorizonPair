@@ -14,8 +14,9 @@ from match import Match
 from player import Player
 
 
-def generate_pairings(num_rounds: Int, players: List[Player])
-    """generate pairings for a chess tournament"""
+def generate_pairings(scoreGroups: List[Player])
+    """generate pairings for a chess tournament
+    @param: scoreGroups - all the score groups in the tournament
+    """
 
     
-

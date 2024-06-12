@@ -15,7 +15,6 @@ class Bracket:
     """a bracket in a chess tournament"""
 
     def __init__(matches: List[Match]) -> None:
-        self.matches: List[Match] 
+        self.matches: List[Match]
         # are all players in bracket at the same score
-        self.homogeneous: bool = None # TODO:
-        self.
+        self.homogeneous: bool = None  # TODO:

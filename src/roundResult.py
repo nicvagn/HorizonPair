@@ -8,11 +8,12 @@
 
     You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>. 
 """
-from bracket import Bracket 
 from enum import Enum
+
+from bracket import Bracket
 from colour import Colour
 
-    
+
 class RoundResult:
     """the result of a bracket of chess games"""
-    def __init__(bracket: Bracket
+    def __init__(bracket: Bracket)
