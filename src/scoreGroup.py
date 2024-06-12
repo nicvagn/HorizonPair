@@ -8,14 +8,12 @@
     You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>. 
 """
 
-from bracket import Bracket
-from colour import Colour
-from match import Match
-from player import Player
+"""A scoregroup is composed of (all) the players with the same score."""
 
 
-def generate_pairings(num_rounds: Int, players: List[Player])
-    """generate pairings for a chess tournament"""
+class ScoreGroup:
+    """a group of players with the same score"""
 
-    
-
+    def __init__(score: int):
+        """@param: score - the score of this ScoreGroup"""
+        self.score = score

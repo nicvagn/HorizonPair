@@ -8,7 +8,8 @@
     You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>. 
 """
 
-"""implimentations of diffrent types of swiss system's. IE: FIDE (Dutch), limi Dubov, Burnstein, Olimpiad Pairing System"""
+"""implimentations of diffrent types of swiss system's. IE: FIDE (Dutch), TODO: limi Dubov, Burnstein, Olimpiad Pairing System"""
+
 
 class SwissPairingSystem:
     """a base class for building swiss pairing systems"""
@@ -21,7 +22,7 @@ class SwissPairingSystem:
         self.players = players
         self.num_players = players.length()
         self.round_num = 1  # always init on first round
-    
+
     def submit_round(results: RoundResults) -> None:
         """submit the result's of a round.
         @side_effect: increments round number.
@@ -29,9 +30,7 @@ class SwissPairingSystem:
         # save round results and increment round number
         self.round_results[self.round_num - 1] = results
         self.round_num += 1
-        
-        
+
 
 class Dutch(SwissPairingSystem):
     """Dutch(FIDE) pairing system"""
-
