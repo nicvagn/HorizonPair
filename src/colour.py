@@ -8,9 +8,11 @@
     You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>. 
 """
 
-from enum import Enum
+from enum import Enum, auto
+
 
 class Colour(Enum):
     """chess colours. White is True, black False"""
+
     WHITE = auto()
     BLACK = auto()

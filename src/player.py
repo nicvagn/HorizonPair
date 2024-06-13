@@ -14,7 +14,7 @@ from colour import Colour
 class Player:
     """a player to be paired by Horizon Pair."""
 
-    def __init__(name: str, id: int, rating: int, colour: colour):
+    def __init__(name: str, id: int, rating: int, colour: Colour):
         """
         @param: name - name ..
         @param: id - CFC id of the player
@@ -39,11 +39,3 @@ class Player:
                 black_games += 1
             else:
                 white_games += 1
-
-    def assign_match(match: Match) -> None:
-        """assign a match to this player ie: pair them
-        @param: match - the mach asigned
-        """
-        self.colour = match.colour
-        self.colourHistory.append(self.colour)
-        self.matchHistory.append(match)
