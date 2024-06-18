@@ -35,6 +35,7 @@ def generate_pairings(scoreGroups: List[Player]) -> Bracket:
 
 QML_file = Path(__file__).parent / "gui.qml"
 
+
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()

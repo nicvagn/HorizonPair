@@ -1,3 +1,6 @@
 [submodule "src/bbpPairings"]
 	path = src/bbpPairings
 	url = https://github.com/nicvagn/bbpPairings
+[submodule "bbpPairings"]
+	path = bbpPairings
+	url = https://github.com/BieremaBoyzProgramming/bbpPairings
