@@ -3,9 +3,9 @@ from time import sleep
 from tkinter import ttk
 
 
-class App(tk.Frame):
+class App(ttk.Frame):
     def __init__(self, master):
-        super().__init__(master)
+        super().__init__(master, padding="3 3 12 12")
         self.pack()
 
         self.entrythingy = tk.Entry()
@@ -28,6 +28,7 @@ class App(tk.Frame):
 
 def main() -> None:
     root = tk.Tk()
+    root.title("HorizonPair")
     myapp = App(root)
 
     mainFrame = ttk.Frame(root, padding="3 3 12 12")
