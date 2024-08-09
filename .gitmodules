@@ -1,0 +1,3 @@
+[submodule "lib/bbpPairings"]
+	path = lib/bbpPairings
+	url = https://github.com/BieremaBoyzProgramming/bbpPairings
