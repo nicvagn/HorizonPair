@@ -8,28 +8,22 @@ import tkinter as tk
 from time import sleep
 from tkinter import ttk
 
+from colour import Colour
+from match import Match
+from player import Player
+from result import Result
+from round import Round
+from tournament import Tournament
+
 
 class App(ttk.Frame):
-    def __init__(self, master):
-        super().__init__(master, padding="3 3 12 12")
-        self.pack()
+    """The visual GUI"""
 
-        self.entrythingy = tk.Entry()
-        self.entrythingy.pack()
+    def __init__(self, parent):
+        super().__init__(parent, width=500, height=500, padding="3 3 12 12")
+        self.grid()
 
-        # Create the application variable.
-        self.contents = tk.StringVar()
-        # Set it to some value.
-        self.contents.set("this is a variable")
-        # Tell the entry widget to watch this variable.
-        self.entrythingy["textvariable"] = self.contents
-
-        # Define a callback for when the user hits return.
-        # It prints the current value of the variable.
-        self.entrythingy.bind("<Key-Return>", self.print_contents)
-
-    def print_contents(self, event):
-        print("Hi. The current entry content is:", self.contents.get())
+        ttk.Label(self, text="Hello, world").grid()
 
 
 def main() -> None:
@@ -37,9 +31,11 @@ def main() -> None:
     root.title("HorizonPair")
     myapp = App(root)
 
-    mainFrame = ttk.Frame(root, padding="3 3 12 12")
     root.mainloop()
 
+def main_(): -> None:
+    swiss = 
+    tournament = Tournament(5, 
 
 if __name__ == "__main__":
-    main()
+    main_()
