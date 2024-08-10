@@ -5,8 +5,13 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
+from tournament.round import Round
+
 
 class Swiss:
     """The swiss system for pairing tournaments"""
 
-    pass
+    # TODO: this
+
+    def pair(players: [Player]) -> Round:
+        pass
