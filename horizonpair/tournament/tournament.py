@@ -5,10 +5,11 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
-from round import Round
+from tournament.pairing_systems.system import PairingSystem
+from tournament.round import Round
 
 
-class tournament:
+class Tournament:
     """A chess tournament, consisting of rounds, games, and matches"""
 
     def __init__(self, number_of_rounds: int, pairing_system: PairingSystem) -> None:

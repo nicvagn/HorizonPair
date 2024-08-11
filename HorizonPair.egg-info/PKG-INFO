@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: HorizonPair
+Version: 0.0.1
+Summary: HorizonPair, a chess tournament pairer
+Author-email: Nicolas Vaagen <nicolasvaagen@gmail.com>
+Maintainer-email: Nicolas Vaagen <nicolasvaagen@gmail.com>
+Project-URL: Repository, https://github.com/nicvagn/HorizonPairPy
+Project-URL: issues, https://github.com/HorizonPairPy/issues
+Keywords: CFC,pairing
+Classifier: Development Status :: ongoing
+Classifier: Intended Audience :: Chess Tournoment hosters
+Classifier: Programming language :: Python :: 3.12+
+Classifier: Operating System :: POSIX :: GNU/Linux
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Topic :: chess
+Description-Content-Type: text/markdown
+License-File: COPYING
+
+# BOO !!!
+
+jk

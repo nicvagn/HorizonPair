@@ -1,0 +1,40 @@
+#  HorizonPair is free software: you can redistribute it and/or modify it under the terms of the gnu general public license as published by the free software foundation, either version 3 of the license, or (at your option) any later version.
+#
+#  HorizonPair is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose. see the gnu general public license for more details.
+#
+#  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
+
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name="HorizonPair"
+version="0.0.1"
+authors=[
+    { name = "Nicolas Vaagen", email="nicolasvaagen@gmail.com" }
+]
+maintainers= [
+    { name = "Nicolas Vaagen", email="nicolasvaagen@gmail.com" }
+]
+description='HorizonPair, a chess tournament pairer'
+keywords=["CFC", "pairing"]
+classifiers= [
+    "Development Status :: ongoing",
+    "Intended Audience :: Chess Tournoment hosters",
+    "Programming language :: Python :: 3.12+",
+    "Operating System :: POSIX :: GNU/Linux",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS :: MacOS X",
+    "Topic :: chess"
+]
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = 'https://github.com/nicvagn/HorizonPairPy'
+issues = 'https://github.com/HorizonPairPy/issues'
+
+[tool.setuptools.packages]
+find = {} # defaults
+

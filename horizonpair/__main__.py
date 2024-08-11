@@ -1,3 +1,3 @@
-import HorizonPair
+import gui.HorizonPair as HorizonPair
 
 HorizonPair.main()

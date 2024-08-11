@@ -3,39 +3,34 @@
 #  HorizonPair is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose. see the gnu general public license for more details.
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
-
-import tkinter as tk
-from time import sleep
-from tkinter import ttk
-
-from colour import Colour
-from match import Match
-from player import Player
-from result import Result
-from round import Round
-from tournament import Tournament
+import horizonpair.tournament
+from horizonpair.chess import Player
+from horizonpair.tournament.pairing_systems import Random
 
 
-class App(ttk.Frame):
-    """The visual GUI"""
+def test(players: [Player]) -> bool:
+    """Test pairing a tournament using random pairing for given players"""
 
-    def __init__(self, parent):
-        super().__init__(parent, width=500, height=500, padding="3 3 12 12")
-        self.grid()
+    print("pairing these players")
+    for n in range(0, len(players)):
+        print(players[n])
 
-        ttk.Label(self, text="Hello, world").grid()
+    # match the players
+    match_list = Random.pair(players)
+
+    print(match_list)
 
 
 def main() -> None:
-    root = tk.Tk()
-    root.title("HorizonPair")
-    myapp = App(root)
+    p1 = Player("Nic", "1337")
+    p2 = Player("Yella", "69")
+    p3 = Player("rando", "this is a number")
+    p4 = Player("yup", "3333333333")
 
-    root.mainloop()
+    players = [p1, p2, p3, p4]
 
-def main_(): -> None:
-    swiss = 
-    tournament = Tournament(5, 
+    test(players)
+
 
 if __name__ == "__main__":
-    main_()
+    main()

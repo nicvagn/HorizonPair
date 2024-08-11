@@ -4,6 +4,7 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
+
 from horizonpair.chess.player import Player
 from horizonpair.chess.result import Result
 
@@ -24,8 +25,13 @@ class Match:
         self.result = result
 
     def __str__(self) -> str:
-        return f"Game in round: {self.round}\n \
-Is it over? { self.over }\n \
-result: { self.result }\n \
-White: { self.white_player } \n \
-Black: { self.black_player }\n"
+        return f"""Game in round: {self.round}
+Is it over? { self.over }
+result: { self.result }
+White: { self.white_player }
+Black: { self.black_player }
+"""
+
+
+if __name__ == "__main__":
+    m = Match(white_player="XXX", black_player="XXX")
