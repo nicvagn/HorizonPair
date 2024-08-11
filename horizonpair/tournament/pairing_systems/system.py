@@ -7,6 +7,7 @@
 
 from horizonpair.chess.match import Match
 from horizonpair.chess.player import Player
+from horizonpair.tournament.round import Round
 
 
 class PairingSystem:
@@ -16,6 +17,6 @@ class PairingSystem:
         """pair a list of players into chess Matches"""
         raise NotImplementedError()
 
-    def make_match(player1: Player, player2: Player) -> Match:
+    def make_match(white: Player, black: Player) -> Match:
         """make a chess match between two players"""
-        raise NotImplementedError()
+        return Match(white_player=white, black_player=black)

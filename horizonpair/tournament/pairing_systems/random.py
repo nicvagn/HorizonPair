@@ -5,8 +5,11 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
-from tournament.round import Round
-from tournament.system import PairingSystem
+import random
+
+from horizonpair.chess import Match, Player
+from horizonpair.tournament import Round
+from horizonpair.tournament.pairing_systems.system import PairingSystem
 
 
 class Random(PairingSystem):
@@ -17,13 +20,16 @@ class Random(PairingSystem):
         number_of_players = len(players)
         assert number_of_players >= 2
 
-        if number_of_players % == 1:
+        if (number_of_players % 2) == 1:
             # TODO: GIVE BYE
+            pass
 
         # randomize the order of the list
         random.shuffle(players)
 
-        # go from 0 to number_of_players by steps of 2 
+        # a place for the matches
+        matches = []
+        # go from 0 to number_of_players by steps of 2
         for n in range(0, number_of_players, 2):
 
             if number_of_players - n < 2:
@@ -34,7 +40,6 @@ class Random(PairingSystem):
                 break
 
             # make pairing of n and n + 1 players
+            matches.append(Random.make_match(players[n], players[n + 1]))
 
-
-
-
+        print(matches)

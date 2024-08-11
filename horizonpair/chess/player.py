@@ -5,7 +5,7 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
-from coulor import Colour
+from horizonpair.chess.colour import Colour
 
 
 class Player:
@@ -16,13 +16,12 @@ class Player:
         self.cfc_id = cfc_id
 
         # history of the matches this player has been in. Empty to start.
-        self.match_history = List()
+        self.match_history = list()
+
+    def __str__(self) -> str:
+        return f"""Player with name: { self.name }
+CFC ID: { self.cfc_id }
+match history: { self.match_history }\n"""
 
     def colour_preferance(self) -> Colour:
         pass
-
-    def __repr__(self) -> str:
-        rep = f"Player with name: { self.name }\n"
-        +f"CFC ID: { self.cfc_id }\n"
-        +f"match history: { self.match_history }\n"
-        return rep

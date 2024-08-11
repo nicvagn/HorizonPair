@@ -5,6 +5,8 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
+from enum import Enum, auto
+
 
 class Result(Enum):
     """a result as in pertains to chess. ie: White or Black won, or draw"""

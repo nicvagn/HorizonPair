@@ -3,8 +3,32 @@
 #  HorizonPair is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose. see the gnu general public license for more details.
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
-from horizonpair.tournament import *
+import horizonpair.tournament
+from horizonpair.chess import Player
+from horizonpair.tournament.pairing_systems import Random
 
 
-def random_pairing_test() -> bool:
-    """Test pairing a tournament using random pairing"""
+def test(players: [Player]) -> bool:
+    """Test pairing a tournament using random pairing for given players"""
+
+    print("pairing these players")
+    for n in range(0, len(players)):
+        print(players[n])
+
+    # match the players
+    match_list = Random.pair(players)
+
+
+def main() -> None:
+    p1 = Player("Nic", "1337")
+    p2 = Player("Yella", "69")
+    p3 = Player("rando", "this is a number")
+    p4 = Player("yup", "3333333333")
+
+    players = [p1, p2, p3, p4]
+
+    test(players)
+
+
+if __name__ == "__main__":
+    main()

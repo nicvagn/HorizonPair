@@ -4,26 +4,26 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
-from player import Player
-from result import Result
+from horizonpair.chess.player import Player
+from horizonpair.chess.result import Result
 
 
 class Match:
     """A chess match."""
 
-    def __init__(self, white_player, black_player, round) -> None:
+    def __init__(self, white_player=None, black_player=None, round=0) -> None:
         self.white_player = white_player
         self.black_player = black_player
         self.round = round
         self.over = False
         self.result: Result = None
 
-    def concluded(result: Result) -> None:
+    def conclude(result: Result) -> None:
         """Signal that the Match has concluded, and result is the Result"""
         self.over = True
         self.result = result
 
-    def __reper__(self) -> str:
+    def __str__(self) -> str:
         return f"Game in round: {self.round}\n \
 Is it over? { self.over }\n \
 result: { self.result }\n \
