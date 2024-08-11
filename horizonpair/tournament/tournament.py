@@ -15,9 +15,14 @@ class tournament:
         self.number_of_rounds = number_of_rounds
         self.completed_rounds: [Round] = None
         self.pairing_system = pairing_system
-        self.matchRecord = List[Matches]
+        self.match_record = List[Matches]
 
-    def __reper__(self) -> str:
+    def __str__(self) -> str:
         """give a str representation of the tournament"""
-        rep = 
-
+        rep = (
+            f"tournament with { self.pairing_system } as the pairing system.\n"
+            + f"and { self.number_of_rounds } rounds.\n"
+            + f"completed rounds: { self.completed_rounds }\n"
+            + f"match record: { self.match_record }\n"
+        )
+        return rep

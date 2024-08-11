@@ -11,12 +11,14 @@ from match import Match
 class Round:
     """A round of chess games that are part of a tournament"""
 
-    def __init__(self, round_number: int, matches: Array[Match]):
+    def __init__(self, round_number: int, matches: Array[Match]) -> None:
         self.round_number = round_number
         self.matches = matches
 
-    def __repr__() -> str:
+    def __str__(self) -> str:
         """Get a str reperesenation of this round."""
-        print(f"Round number { round_number }")
+        string_rep = f"Round number { round_number }"
         for m in self.matches:
-            print(m)
+            string_rep += m
+
+        return string_rep
