@@ -5,8 +5,8 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
-from tournament.pairing_systems.system import PairingSystem
-from tournament.round import Round
+from horizonpair.tournament.pairing_systems.system import PairingSystem
+from horizonpair.tournament.round import Round
 
 
 class Tournament:

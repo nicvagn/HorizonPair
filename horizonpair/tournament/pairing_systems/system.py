@@ -5,9 +5,9 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
-from chess.match import Match
-from chess.player import Player
-from tournament.round import Round
+from horizonpair.chess.match import Match
+from horizonpair.chess.player import Player
+from horizonpair.tournament.round import Round
 
 
 class PairingSystem:
