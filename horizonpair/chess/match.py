@@ -27,15 +27,15 @@ class Match:
         self.result = result
 
     def __str__(self) -> str:
-        return f"""Game in round: {self.round}
+        return f"""Match in round: {self.round}
 Is it over? { self.over }
 result: { self.result }
 
-players:
+PLAYERS:
 White: { self.white_player }
----
+    ---
 Black: { self.black_player }
-"""
+(match fin)"""
 
 
 if __name__ == "__main__":

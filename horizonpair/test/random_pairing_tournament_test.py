@@ -11,7 +11,7 @@ from horizonpair.tournament.pairing_systems import Random
 def test(players: [Player]) -> bool:
     """Test pairing a tournament using random pairing for given players"""
 
-    print("pairing these players")
+    print("Pairing these players")
     for n in range(0, len(players)):
         print(players[n])
 
@@ -20,9 +20,9 @@ def test(players: [Player]) -> bool:
 
     print("Match List in this round:")
     for m in match_list:
-        print("~~~~~~~")
+        print("~~~ GAME START ~~~")
         print(m)
-        print("~~~~~~~")
+        print("~~~ GAME END ~~~")
 
     return True
 

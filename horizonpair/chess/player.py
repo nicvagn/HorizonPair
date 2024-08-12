@@ -21,7 +21,7 @@ class Player:
     def __str__(self) -> str:
         return f"""Player with name: { self.name }
 CFC ID: { self.cfc_id }
-match history: { self.match_history }\n"""
+match history: { self.match_history }"""
 
     def colour_preferance(self) -> Colour:
         pass
