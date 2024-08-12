@@ -12,7 +12,9 @@ from horizonpair.chess.result import Result
 class Match:
     """A chess match."""
 
-    def __init__(self, white_player=None, black_player=None, round=0) -> None:
+    def __init__(
+        self, white_player: Player = None, black_player: Player = None, round=0
+    ) -> None:
         self.white_player = white_player
         self.black_player = black_player
         self.round = round
@@ -28,10 +30,14 @@ class Match:
         return f"""Game in round: {self.round}
 Is it over? { self.over }
 result: { self.result }
+
+players:
 White: { self.white_player }
+---
 Black: { self.black_player }
 """
 
 
 if __name__ == "__main__":
     m = Match(white_player="XXX", black_player="XXX")
+    print(m)

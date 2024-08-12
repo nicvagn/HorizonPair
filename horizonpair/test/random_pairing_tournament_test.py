@@ -15,10 +15,16 @@ def test(players: [Player]) -> bool:
     for n in range(0, len(players)):
         print(players[n])
 
-    # match the players
+    # pair the players
     match_list = Random.pair(players)
 
-    print(match_list)
+    print("Match List in this round:")
+    for m in match_list:
+        print("~~~~~~~")
+        print(m)
+        print("~~~~~~~")
+
+    return True
 
 
 def main() -> None:

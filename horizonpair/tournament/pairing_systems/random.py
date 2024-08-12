@@ -42,4 +42,4 @@ class Random(PairingSystem):
             # make pairing of n and n + 1 players
             matches.append(Random.make_match(players[n], players[n + 1]))
 
-        print(matches)
+        return matches
