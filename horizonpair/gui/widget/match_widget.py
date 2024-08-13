@@ -8,6 +8,7 @@
 from tkinter import *
 from tkinter import ttk
 
+import horizonpair.gui.styles
 from horizonpair.chess.colour import Colour
 from horizonpair.chess.match import Match
 from horizonpair.chess.player import Player
@@ -39,32 +40,22 @@ class Match_Widget(ttk.Frame):
 
     def __init__(self, parent, match: Match):
         super().__init__(parent, width=500, height=500, padding="3 3 12 12")
+        self.grid(column=0, row=0, sticky=(N, W, E, S))
 
         # White Player
-        white_name = StringVar(self)
-        ttk.Label(self, text=f"White: { match.white_player }").grid(column=1, row=1)
-        white_name_label = ttk.Label(self, text="White Player")
+        ttk.Label(self, text=f"White: { match.white_player }").grid(
+            column=1, row=1, padx=3, pady=3
+        )
 
         # Black Player
-        black_name = StringVar(self)
-        ttk.Label(self, text=f"Black: { match.black_player }").grid(column=1, row=3)
-        black_name_label = ttk.Label(self, text="Black Player")
-
-        white_name.set("Nicolas Vaagen")
-        black_name.set("Jont bluet")
-
-        white_name_label["textvariable"] = white_name
-
-        black_name_label["textvariable"] = black_name
-
-        self.grid(column=0, row=0, sticky=(N, W, E, S))
-        white_name_label.grid(column=1, row=2)
-        black_name_label.grid(column=1, row=4)
+        ttk.Label(self, text=f"Black: { match.black_player }").grid(
+            column=2, row=1, padx=3, pady=3
+        )
 
 
 def test() -> None:
     root = Tk()
-    root.title("HorizonPair")
+    root.title("Match Widget")
 
     # define the match shown
     match = Match(Player("Nicolas Vaagen", "176141"), Player("Rob Bin ", "276141"))

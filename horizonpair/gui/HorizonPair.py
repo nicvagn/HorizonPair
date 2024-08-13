@@ -4,16 +4,16 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
-import tkinter as tk
 from time import sleep
+from tkinter import *
 from tkinter import ttk
 
-from chess.colour import Colour
-from chess.match import Match
-from chess.player import Player
-from chess.result import Result
-from tournament import Tournament
-from tournament.round import Round
+from horizonpair.chess.colour import Colour
+from horizonpair.chess.match import Match
+from horizonpair.chess.player import Player
+from horizonpair.chess.result import Result
+from horizonpair.tournament import Tournament
+from horizonpair.tournament.round import Round
 
 
 class App(ttk.Frame):
@@ -27,16 +27,12 @@ class App(ttk.Frame):
 
 
 def main() -> None:
-    root = tk.Tk()
+    root = Tk()
     root.title("HorizonPair")
     myapp = App(root)
 
     root.mainloop()
 
 
-def main_() -> None:
-    pass
-
-
 if __name__ == "__main__":
-    main_()
+    main()
