@@ -35,33 +35,33 @@ def print_hierarchy(w, depth=0):
         print_hierarchy(i, depth + 1)
 
 
-class Match_Widget(ttk.Frame):
+class MatchWidget(ttk.Frame):
     """The visual rep. of a game. Black and white player, round, etc."""
 
     def __init__(self, parent, match: Match):
         super().__init__(parent, width=500, height=500, padding="3 3 12 12")
-        self.grid(column=0, row=0, sticky=(N, W, E, S))
 
+        self.grid(column=0, row=0, sticky=(N, W, E, S))
         # White Player
-        ttk.Label(self, text=f"White: { match.white_player }").grid(
+        ttk.Label(self, text=f"White: { match.white_player }", style="WB.TLabel").grid(
             column=1, row=1, padx=3, pady=3
         )
 
         # Black Player
-        ttk.Label(self, text=f"Black: { match.black_player }").grid(
+        ttk.Label(self, text=f"Black: { match.black_player }", style="BW.TLabel").grid(
             column=2, row=1, padx=3, pady=3
         )
 
 
 def test() -> None:
-    root = Tk()
-    root.title("Match Widget")
+    root = tk()
+    root.title("match widget")
 
     # define the match shown
-    match = Match(Player("Nicolas Vaagen", "176141"), Player("Rob Bin ", "276141"))
-    widget = Match_Widget(root, match)
+    match = Match(player("nicolas vaagen", "176141"), player("rob bin ", "276141"))
+    widget = matchwidget(root, match)
 
-    print_hierarchy(root)
+    # print_hierarchy(widget)
     root.mainloop()
 
 

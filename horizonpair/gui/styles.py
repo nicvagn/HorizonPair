@@ -5,6 +5,12 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
-s = ttk.Style()
+from tkinter import *
+from tkinter import ttk
 
-s.configure(...
+style = ttk.Style()
+
+# Black White Label
+style.configure("BW.TLabel", foreground="black", background="white")
+# White Black Label
+style.configure("WB.TLabel", foreground="white", background="black")
