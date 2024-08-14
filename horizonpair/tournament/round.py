@@ -6,12 +6,13 @@
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
 from horizonpair.chess.match import Match
+from horizonpair.chess.player import Player
 
 
 class Round:
     """A round of chess games that are part of a tournament"""
 
-    def __init__(self, round_number: int, matches: list[Match]) -> None:
+    def __init__(self, tournament, round_number: int, players: list[Player]) -> None:
         self.round_number = round_number
         self.matches = matches
 

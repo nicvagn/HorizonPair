@@ -8,13 +8,12 @@
 from tkinter import *
 from tkinter import ttk
 
-import horizonpair.gui.styles
 from horizonpair.chess.colour import Colour
 from horizonpair.chess.match import Match
 from horizonpair.chess.player import Player
 from horizonpair.chess.result import Result
-from horizonpair.tournament import Tournament
 from horizonpair.tournament.round import Round
+from horizonpair.tournament.tournament import Tournament
 
 
 def print_hierarchy(w, depth=0):
@@ -39,7 +38,7 @@ class MatchWidget(ttk.Frame):
     """The visual rep. of a game. Black and white player, round, etc."""
 
     def __init__(self, parent, match: Match):
-        super().__init__(parent, width=500, height=500, padding="3 3 12 12")
+        super().__init__(parent, padding="3 3 12 12")
 
         self.grid(column=0, row=0, sticky=(N, W, E, S))
         # White Player
@@ -54,12 +53,12 @@ class MatchWidget(ttk.Frame):
 
 
 def test() -> None:
-    root = tk()
+    root = Tk()
     root.title("match widget")
 
     # define the match shown
-    match = Match(player("nicolas vaagen", "176141"), player("rob bin ", "276141"))
-    widget = matchwidget(root, match)
+    match = Match(Player("nicolas vaagen", "176141"), Player("rob bin ", "276141"))
+    widget = MatchWidget(root, match)
 
     # print_hierarchy(widget)
     root.mainloop()

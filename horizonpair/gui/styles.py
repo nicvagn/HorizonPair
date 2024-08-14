@@ -5,6 +5,7 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
+# FIX: THIS MAKES A WINDOW, WHY
 from tkinter import *
 from tkinter import ttk
 

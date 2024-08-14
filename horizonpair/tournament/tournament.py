@@ -5,6 +5,8 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
+from horizonpair.chess import Match
+from horizonpair.tournament.pairing_systems.random import Random
 from horizonpair.tournament.pairing_systems.system import PairingSystem
 from horizonpair.tournament.round import Round
 
@@ -16,7 +18,7 @@ class Tournament:
         self.number_of_rounds = number_of_rounds
         self.completed_rounds: [Round] = None
         self.pairing_system = pairing_system
-        self.match_record = List[Matches]
+        self.match_record = list[Match]
 
     def __str__(self) -> str:
         """give a str representation of the tournament"""
@@ -27,3 +29,12 @@ class Tournament:
             + f"match record: { self.match_record }\n"
         )
         return rep
+
+
+def test() -> bool:
+    t = Tournament(4, Random)
+    return True
+
+
+if __name__ == "__main__":
+    test()

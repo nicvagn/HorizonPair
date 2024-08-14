@@ -8,8 +8,8 @@
 import random
 
 from horizonpair.chess import Match, Player
-from horizonpair.tournament import Round
 from horizonpair.tournament.pairing_systems.system import PairingSystem
+from horizonpair.tournament.round import Round
 
 
 class Random(PairingSystem):
