@@ -7,7 +7,20 @@ from horizonpair.chess.colour import Colour
 from horizonpair.chess.match import Match
 from horizonpair.chess.player import Player
 from horizonpair.chess.result import Result
+from horizonpair.tournament import Round, Tournament
+from horizonpair.tournament.pairing_systems import Random
 
-white = Colour.WHITE
-
-print(white)
+list_players = [
+    Player("lllllllll", "ididididid"),
+    Player("ttttttttt", "ididididid"),
+    Player("yyyyyyyyy", "ididididid"),
+    Player("xxxxxxxxx", "ididididid"),
+    Player("ccccccccc", "ididididid"),
+    Player("bbbbbbbbb", "ididididid"),
+    Player("sssssssss", "ididididid"),
+    Player("#########", "ididididid"),
+]
+t = Tournament(5, Random, list_players)
+round = t.pair_round()
+print("An example round")
+print(round)

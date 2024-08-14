@@ -12,14 +12,17 @@ from horizonpair.chess.player import Player
 class Round:
     """A round of chess games that are part of a tournament"""
 
-    def __init__(self, tournament, round_number: int, players: list[Player]) -> None:
+    def __init__(self, round_number: int, matches: [Match]) -> None:
         self.round_number = round_number
         self.matches = matches
 
     def __str__(self) -> str:
         """Get a str reperesenation of this round."""
-        string_rep = f"Round number { round_number }"
-        for m in self.matches:
-            string_rep += m
+        string_rep = f"Round number: { self.round_number }\n"
+        if self.matches is None:
+            string_rep += "No Matches\n"
+        else:
+            for m in self.matches:
+                string_rep += str(m)
 
         return string_rep

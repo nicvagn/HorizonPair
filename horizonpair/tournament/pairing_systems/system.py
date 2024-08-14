@@ -13,8 +13,8 @@ from horizonpair.tournament.round import Round
 class PairingSystem:
     """A pairing system to pair a chess tournament. This is a base class to be expanded on."""
 
-    def pair(players: [Player]) -> Round:
-        """pair a list of players into chess Matches"""
+    def pair(round_number: int, players: [Player]) -> Round:
+        """pair a list of players into a round"""
         raise NotImplementedError()
 
     def make_match(white: Player, black: Player) -> Match:

@@ -15,14 +15,14 @@ from horizonpair.tournament.round import Round
 class Random(PairingSystem):
     """The a 100% random pairing system for tournaments"""
 
-    def pair(players: [Player]) -> Round:
+    def pair(round_number: int, players: [Player]) -> Round:
         """create the pairings randomly"""
         number_of_players = len(players)
         assert number_of_players >= 2
 
         if (number_of_players % 2) == 1:
             # TODO: GIVE BYE
-            pass
+            raise NotImplementedError
 
         # randomize the order of the list
         random.shuffle(players)
@@ -34,12 +34,9 @@ class Random(PairingSystem):
 
             if number_of_players - n < 2:
                 # if we cannot take 2 players from the unpaired players, give a bye
-
-                # give a bye
-
-                break
+                raise NotImplementedError
 
             # make pairing of n and n + 1 players
             matches.append(Random.make_match(players[n], players[n + 1]))
 
-        return matches
+        return Round(round_number, matches)
