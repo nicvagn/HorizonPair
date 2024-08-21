@@ -8,35 +8,35 @@ from horizonpair.chess import Player
 from horizonpair.tournament.pairing_systems import Random
 
 
-def test(players: [Player]) -> bool:
+def test() -> bool:
     """Test pairing a tournament using random pairing for given players"""
 
+    p1 = player("nic", "1337")
+    p2 = player("yella", "69")
+    p3 = player("rando", "this is a number")
+    p4 = player("yup", "3333333333")
+
+    players = [p1, p2, p3, p4]
     print("Pairing these players")
     for n in range(0, len(players)):
         print(players[n])
 
     # pair the players
-    match_list = Random.pair(players)
+    round1 = Random.pair(1, players)
 
     print("Match List in this round:")
-    for m in match_list:
-        print("~~~ GAME START ~~~")
+    for m in round1.matches:
         print(m)
-        print("~~~ GAME END ~~~")
+
+    # pair the players for round 2
+    round2 = Random.pair(2, round1.matches)
+
+    print("Match List in this round:")
+    for m in round2.matches:
+        print(m)
 
     return True
 
 
-def main() -> None:
-    p1 = Player("Nic", "1337")
-    p2 = Player("Yella", "69")
-    p3 = Player("rando", "this is a number")
-    p4 = Player("yup", "3333333333")
-
-    players = [p1, p2, p3, p4]
-
-    test(players)
-
-
 if __name__ == "__main__":
-    main()
+    test()

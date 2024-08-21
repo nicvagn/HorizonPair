@@ -37,6 +37,6 @@ class Random(PairingSystem):
                 raise NotImplementedError
 
             # make pairing of n and n + 1 players
-            matches.append(Random.make_match(players[n], players[n + 1]))
+            matches.append(Match(players[n], players[n + 1], round=round_number))
 
         return Round(round_number, matches)

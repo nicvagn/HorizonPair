@@ -13,8 +13,9 @@ from horizonpair.chess.colour import Colour
 from horizonpair.chess.match import Match
 from horizonpair.chess.player import Player
 from horizonpair.chess.result import Result
-from horizonpair.gui.widget import MatchWidget
+from horizonpair.gui.widget import PlayerWidget
 from horizonpair.tournament import Tournament
+from horizonpair.tournament.roster import Roster
 from horizonpair.tournament.round import Round
 
 
@@ -30,5 +31,10 @@ class RosterWidget(ttk.Frame):
 
         self.grid(column=0, row=0, sticky=(N, W, E, S))
 
-        for player in roster.get_playes():
-            PlayerWidget(self, player)
+        i = 0
+        # for player in roster.get_playes() display the player in a widget
+        while i < len(roster.get_playes()):
+            player = roster.get_playes()[i]
+            # display the widget
+            PlayerWidget(self, player).grid(row=i, column=0)
+            i += 1
