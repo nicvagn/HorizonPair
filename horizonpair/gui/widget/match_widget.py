@@ -51,6 +51,10 @@ class MatchWidget(ttk.Frame):
             column=2, row=1, padx=3, pady=3
         )
 
+    def get_match(self) -> Match:
+        """Get the match shown in this widget"""
+        return self.match
+
 
 def test() -> None:
     root = Tk()

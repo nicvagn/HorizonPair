@@ -23,5 +23,11 @@ class Player:
 CFC ID: { self.cfc_id }
 match history: { self.match_history }"""
 
+    def __repr__(self) -> str:
+        return self.__str__()
+
+    def __lt__(self, other) -> bool:
+        return self.name < other.name
+
     def colour_preferance(self) -> Colour:
         pass

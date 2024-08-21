@@ -21,11 +21,6 @@ class Match:
         self.over = False
         self.result: Result = None
 
-    def conclude(result: Result) -> None:
-        """Signal that the Match has concluded, and result is the Result"""
-        self.over = True
-        self.result = result
-
     def __str__(self) -> str:
         return f"""--- match begin ---
 Match in round: {self.round}
@@ -36,6 +31,11 @@ White: { self.white_player }
 Black: { self.black_player }
 --- match end ---
 """
+
+    def conclude(result: Result) -> None:
+        """Signal that the Match has concluded, and result is the Result"""
+        self.over = True
+        self.result = result
 
 
 if __name__ == "__main__":
