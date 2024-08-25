@@ -31,6 +31,7 @@ class TournamentWidget(ttk.LabelFrame):
 
         self.grid(column=0, row=0, sticky=(N, W, E, S))
 
+        # lapel with tournament name
         self.name_label = ttk.Label(self, text=tournament.get_name())
         self.name_label.grid(column=0, row=0, sticky=(N, W, E, S))
 

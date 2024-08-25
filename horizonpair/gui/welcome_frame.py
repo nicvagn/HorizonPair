@@ -42,33 +42,27 @@ class WelcomeFrame(ttk.Frame):
             row=0, column=0
         )
 
-        self.new_tournament = ttk.Button(
-            self, text="New Tournament", command=self.new_tournament
+        self.create_tournament_btn = ttk.Button(
+            self, text="New Tournament", command=self.create_tournament
         ).grid(row=1, column=0)
 
-        self.view_tournament = ttk.Button(
+        self.view_tournament_btn = ttk.Button(
             self, text="View Tournament", command=parent.view_tournament
         ).grid(row=2, column=0)
 
-        self.add_player = ttk.Button(
+        self.add_player_btn = ttk.Button(
             self, text="Add Player", command=self.add_player
         ).grid(row=3, column=0)
 
-        self.view_players = ttk.Button(
+        self.view_players_btn = ttk.Button(
             self, text="View Players", command=self.view_players
         ).grid(row=4, column=0)
 
-    def new_tournament(self):
+    def create_tournament(self):
         """Create a new tournament"""
         # TODO: ADD UI TO CREATE A NEW TOURNAMENT
 
-        raise NotImplementedError
-
-    def new_tournament(self):
-        """Create a new tournament"""
-        # TODO: ADD UI TO CREATE A NEW TOURNAMENT
-
-        self.parent.view_tournament()
+        self.parent.create_tournament()
 
     def add_player(self):
         """Add a player to the HorizonPair system"""
