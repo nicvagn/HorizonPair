@@ -22,7 +22,16 @@ list_players = [
 ]
 t = Tournament(5, Random, list_players, "test tournament")
 round = t.pair_round()
-print("An example round")
-print(round)
-print("An example tournament")
-print(t)
+
+
+def test() -> bool:
+    print("An example round")
+    print(round)
+    print("An example tournament")
+    print(t)
+
+    return True
+
+
+if __name__ == "__main__":
+    test()

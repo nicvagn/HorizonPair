@@ -50,13 +50,13 @@ class WidgetTest(ttk.Frame):
         PlayerWidget(self, player).grid(row=1, column=2)
 
 
-def main() -> None:
+def test() -> None:
     root = Tk()
     root.title("HorizonPair")
-    myapp = App(root)
+    myapp = WidgetTest(root)
 
     root.mainloop()
 
 
 if __name__ == "__main__":
-    main()
+    test()

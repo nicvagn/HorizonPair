@@ -11,10 +11,10 @@ from horizonpair.tournament.pairing_systems import Random
 def test() -> bool:
     """Test pairing a tournament using random pairing for given players"""
 
-    p1 = player("nic", "1337")
-    p2 = player("yella", "69")
-    p3 = player("rando", "this is a number")
-    p4 = player("yup", "3333333333")
+    p1 = Player("nic", "1337")
+    p2 = Player("yella", "69")
+    p3 = Player("rando", "this is a number")
+    p4 = Player("yup", "3333333333")
 
     players = [p1, p2, p3, p4]
     print("Pairing these players")
