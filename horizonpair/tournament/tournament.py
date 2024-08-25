@@ -17,10 +17,11 @@ class Tournament:
 
     def __init__(
         self,
-        number_of_rounds: int,
-        pairing_system: PairingSystem,
-        roster: Roster,
-        name: str,
+        name: str = "HorizonPair",
+        roster: Roster = None,
+        acceleration_method=None,
+        number_of_rounds: int = None,
+        pairing_system: PairingSystem = None,
     ) -> None:
         self.number_of_rounds = number_of_rounds
         self.completed_rounds: [Round] = None

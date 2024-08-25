@@ -13,6 +13,7 @@ from horizonpair.chess.colour import Colour
 from horizonpair.chess.match import Match
 from horizonpair.chess.player import Player
 from horizonpair.chess.result import Result
+from horizonpair.gui.create_tournament_frame import CreateTournamentFrame
 from horizonpair.gui.welcome_frame import WelcomeFrame
 from horizonpair.gui.widget import (
     MatchWidget,
@@ -52,8 +53,9 @@ class App(Tk):
 
     def create_tournament(self):
         """Create a new tournament"""
+        self.clear()
 
-        raise NotImplementedError
+        self.current_frame = CreateTournamentFrame(self)
 
     def view_tournament(self):
         """View a tournament"""
