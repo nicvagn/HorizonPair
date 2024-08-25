@@ -1,4 +1,3 @@
-#  roster is a part of HorizonPair
 #  HorizonPair is free software: you can redistribute it and/or modify it under the terms of the gnu general public license as published by the free software foundation, either version 3 of the license, or (at your option) any later version.
 #
 #  HorizonPair is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose. see the gnu general public license for more details.
@@ -19,7 +18,7 @@ from horizonpair.tournament.roster import Roster
 from horizonpair.tournament.round import Round
 
 
-class RosterWidget(ttk.Frame):
+class RosterWidget(ttk.LabelFrame):
     """A visual reperesentation of a chess roster."""
 
     def __init__(self, parent, roster: Roster) -> None:
@@ -38,3 +37,18 @@ class RosterWidget(ttk.Frame):
             # display the widget
             PlayerWidget(self, player).grid(row=i, column=0)
             i += 1
+
+
+# testing
+if __name__ == "__main__":
+    root = Tk()
+    root.geometry("600x600")
+    roster = Roster(
+        [
+            Player("player 1", "cfc id 1"),
+            Player("player 2", "cfc id 2"),
+            Player("player 3", "cfc id 3"),
+        ]
+    )
+    RosterWidget(root, roster).pack()
+    root.mainloop()

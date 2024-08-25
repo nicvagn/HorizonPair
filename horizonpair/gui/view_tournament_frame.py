@@ -1,28 +1,28 @@
-#  view_tournament_frame is part of HorizonSwiss
-#  HorizonSwiss is free software: you can redistribute it and/or modify it under the terms of the gnu general public license as published by the free software foundation, either version 3 of the license, or (at your option) any later version.
+#  view_tournament_frame is part of HorizonPair
+#  HorizonPair is free software: you can redistribute it and/or modify it under the terms of the gnu general public license as published by the free software foundation, either version 3 of the license, or (at your option) any later version.
 #
-#  HorizonSwiss is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose. see the gnu general public license for more details.
+#  HorizonPair is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose. see the gnu general public license for more details.
 #
-#  you should have received a copy of the gnu general public license along with HorizonSwiss. if not, see <https://www.gnu.org/licenses/>.
+#  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
 from time import sleep
 from tkinter import *
 from tkinter import ttk
 
-from horizonswiss.chess.colour import Colour
-from horizonswiss.chess.match import Match
-from horizonswiss.chess.player import Player
-from horizonswiss.chess.result import Result
-from horizonswiss.gui.widget import (
+from horizonpair.chess.colour import Colour
+from horizonpair.chess.match import Match
+from horizonpair.chess.player import Player
+from horizonpair.chess.result import Result
+from horizonpair.gui.widget import (
     MatchWidget,
     PlayerWidget,
     RosterWidget,
     TournamentWidget,
 )
-from horizonswiss.test.widget_display_test import WidgetTest
-from horizonswiss.tournament import Roster, Tournament
-from horizonswiss.tournament.pairing_systems import PairingSystem, Random
-from horizonswiss.tournament.round import Round
+from horizonpair.test.widget_display_test import WidgetTest
+from horizonpair.tournament import Roster, Tournament
+from horizonpair.tournament.pairing_systems import PairingSystem, Random
+from horizonpair.tournament.round import Round
 
 
 class ViewTournamentFrame(ttk.Frame):
@@ -38,7 +38,7 @@ class ViewTournamentFrame(ttk.Frame):
         self["borderwidth"] = 12
         self["padding"] = 50  # internal padding inside the frame
         # WIDGETS
-        ttk.Label(self, text="HorizonSwiss", font=("tkCaptionFont", 24)).grid(
+        ttk.Label(self, text="HorizonPair", font=("tkCaptionFont", 24)).grid(
             row=0, column=0
         )
 

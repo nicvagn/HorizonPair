@@ -16,7 +16,7 @@ authors=[
 maintainers= [
     { name = "Nicolas Vaagen", email="nicolasvaagen@gmail.com" }
 ]
-description='HorizonPair, a chess tournament pairer'
+description='HorizonPair, a chess tournament pairing manager.'
 keywords=["CFC", "pairing"]
 classifiers= [
     "Development Status :: ongoing",
@@ -32,8 +32,8 @@ readme = "README.md"
 license = {file = "LICENSE"}
 
 [project.urls]
-Repository = 'https://github.com/nicvagn/HorizonPairPy'
-issues = 'https://github.com/HorizonPairPy/issues'
+Repository = 'https://github.com/nicvagn/HorizonPair'
+issues = 'https://github.com/nicvagn/HorizonPair/issues'
 
 [tool.setuptools.packages]
 find = {} # defaults

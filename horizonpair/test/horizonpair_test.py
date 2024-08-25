@@ -20,7 +20,7 @@ list_players = [
     Player("sssssssss", "ididididid"),
     Player("#########", "ididididid"),
 ]
-t = Tournament(5, Random, list_players)
+t = Tournament(5, Random, list_players, "test tournament")
 round = t.pair_round()
 print("An example round")
 print(round)

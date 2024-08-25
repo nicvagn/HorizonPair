@@ -8,6 +8,7 @@
 from horizonpair.chess import Match, Player
 from horizonpair.tournament.pairing_systems.random import Random
 from horizonpair.tournament.pairing_systems.system import PairingSystem
+from horizonpair.tournament.roster import Roster
 from horizonpair.tournament.round import Round
 
 
@@ -35,7 +36,7 @@ class Tournament:
         rep = (
             f"tournament with { self.pairing_system } as the pairing system.\n"
             + f"rounds: { self.number_of_rounds }\n"
-            + f"players: { self.players }\n"
+            + f"roster: { self.roster }\n"
             + f"completed rounds: { self.completed_rounds }\n"
             + f"match record: { self.match_record }\n"
         )
@@ -44,7 +45,7 @@ class Tournament:
     def pair_round(self) -> Round:
         """pair a round in the tournament"""
         # pair a new Round according to the pairing system
-        new_round: Round = self.pairing_system.pair(self.current_round, self.players)
+        new_round: Round = self.pairing_system.pair(self.current_round, self.roster)
 
         return new_round
 

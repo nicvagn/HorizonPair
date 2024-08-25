@@ -21,7 +21,7 @@ class Player:
     def __str__(self) -> str:
         return f"""Player with name: { self.name }
 CFC ID: { self.cfc_id }
-match history: { self.match_history }"""
+match history: { self.match_history }\n"""
 
     def __repr__(self) -> str:
         return self.__str__()

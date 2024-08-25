@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
 Name: HorizonPair
 Version: 0.0.1
-Summary: HorizonPair, a chess tournament pairer
+Summary: HorizonPair, a chess tournament pairing manager.
 Author-email: Nicolas Vaagen <nicolasvaagen@gmail.com>
 Maintainer-email: Nicolas Vaagen <nicolasvaagen@gmail.com>
-Project-URL: Repository, https://github.com/nicvagn/HorizonPairPy
-Project-URL: issues, https://github.com/HorizonPairPy/issues
+Project-URL: Repository, https://github.com/nicvagn/HorizonPair
+Project-URL: issues, https://github.com/nicvagn/HorizonPair/issues
 Keywords: CFC,pairing
 Classifier: Development Status :: ongoing
 Classifier: Intended Audience :: Chess Tournoment hosters
@@ -18,6 +18,10 @@ Classifier: Topic :: chess
 Description-Content-Type: text/markdown
 License-File: COPYING
 
-# BOO !!!
+# HorizonSwiss - Swiss chess tournament manager
 
-jk
+> Made by nrv for Saskatchewan Horizon Chess Club
+
+## vision - a tournament manager made by the community for the community.
+
+Still just a twinkle, but it's alive.

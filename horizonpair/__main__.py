@@ -1,3 +1,3 @@
-import gui.main_window as HorizonPair
+import app.application as HorizonPair
 
-HorizonPair.main()
+HorizonPair.start()
