@@ -15,13 +15,18 @@ class Tournament:
     """A chess tournament, consisting of rounds, games, and matches"""
 
     def __init__(
-        self, number_of_rounds: int, pairing_system: PairingSystem, players: [Player]
+        self,
+        number_of_rounds: int,
+        pairing_system: PairingSystem,
+        roster: Roster,
+        name: str,
     ) -> None:
         self.number_of_rounds = number_of_rounds
         self.completed_rounds: [Round] = None
         self.pairing_system = pairing_system
         self.match_record = list[Match]
-        self.players = players
+        self.roster: Roster = roster
+        self.name: str = name
         # start at the first round
         self.current_round = 1
 
@@ -42,6 +47,14 @@ class Tournament:
         new_round: Round = self.pairing_system.pair(self.current_round, self.players)
 
         return new_round
+
+    def get_roster(self) -> Roster:
+        """return the roster of the tournament"""
+        return self.roster
+
+    def get_name(self) -> str:
+        """return the name of the tournament"""
+        return self.name
 
 
 def test() -> bool:

@@ -14,7 +14,7 @@ from horizonpair.gui.widget import MatchWidget, PlayerWidget, RosterWidget
 from horizonpair.tournament import Roster
 
 
-class App(ttk.Frame):
+class WidgetTest(ttk.Frame):
     """The visual GUI"""
 
     def __init__(self, parent):
@@ -29,7 +29,18 @@ class App(ttk.Frame):
         Label(self, text="roster").grid(row=0, column=1)
         # define the roster shown
         roster = Roster(
-            [Player("nicolas vaagen", "176141"), Player("rob bin ", "276141")]
+            [
+                Player("nicolas vaagen", "176141"),
+                Player("rob bin ", "276141"),
+                Player("haduaas vaagen", "676767"),
+                Player("root zen", "4233=1"),
+                Player("nicosad vaagen", "32=372"),
+                Player("Luke Sandwitch", "276141"),
+                Player("taytaas swiftn", "345487"),
+                Player("no you", "276141"),
+                Player("Santa Claus", "5525325"),
+                Player("johno canobi ", "321325"),
+            ]
         )
         RosterWidget(self, roster).grid(row=1, column=1)
 
