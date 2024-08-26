@@ -5,6 +5,7 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
+from horizonpair.cfc.id import CfcId
 from horizonpair.chess import Match, Player
 from horizonpair.tournament.pairing_systems.random import Random
 from horizonpair.tournament.pairing_systems.system import PairingSystem
@@ -23,25 +24,30 @@ class Tournament:
         number_of_rounds: int = None,
         pairing_system: PairingSystem = None,
         province: str = "SK",
+        td_cfc_id: CfcId = "000000",
+        to_cfc_id: CfcId = "000000",
+        date="0000/00/00",
     ) -> None:
         # init attributes
+
         self.name: str = name
         self.roster: Roster = roster
         self.acceleration_method = acceleration_method
         self.number_of_rounds: int = number_of_rounds
-        self.pairing_system = pairing_system
+        self.pairing_system: PairingSystem = pairing_system
         self.province: str = province
+        self.td_cfc_id: CfcId = td_cfc_id
+        self.to_cfc_id: CfcId = to_cfc_id
+        self.date = date
 
-        # FIXME:
-        self.td_cfc_id = "TD_id"
-        self.to_cfc_id = "TO_id"
-        self.date = "1969/00/00"
+        # other tournament attributes:
 
-        # other tournament attributes
-        self.completed_rounds: [Round] = None
-        self.match_record = list[Match]
+        self.completed_rounds: [Round] = list()
+        # the round that is currently being played
+        self.current_round: Round = None
+        self.current_round_num: int = None
         # start at the first round
-        self.current_round = 1
+        self.current_round_num = 1
 
     def __str__(self) -> str:
         """give a str representation of the tournament"""
@@ -50,16 +56,24 @@ class Tournament:
             + f"rounds: { self.number_of_rounds }\n"
             + f"roster: { self.roster }\n"
             + f"completed rounds: { self.completed_rounds }\n"
-            + f"match record: { self.match_record }\n"
         )
         return rep
 
-    def pair_round(self) -> Round:
-        """pair a round in the tournament"""
-        # pair a new Round according to the pairing system
-        new_round: Round = self.pairing_system.pair(self.current_round, self.roster)
+    def pair_next_round(self) -> None:
+        """pair the next round in the tournament
+        side effects: +1 to the current round, add current round to completed rounds
+        """
+        self.completed_rounds.append(self.current_round)
+        self.current_round_num += 1
 
-        return new_round
+        # pair the next round according to the pairing system
+        new_round: Round = self.pairing_system.pair(self.current_round_num, self.roster)
+
+        # add the newly completed round to the completed rounds
+        self.completed_rounds.append(self.current_round)
+
+        # update the current round to the newly paired one
+        self.current_round = new_round
 
     def get_roster(self) -> Roster:
         """return the roster of the tournament"""

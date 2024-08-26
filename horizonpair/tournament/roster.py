@@ -31,6 +31,9 @@ class Roster:
     def __repr__(self) -> str:
         return self.__str__()
 
+    def __len__(self) -> int:
+        return len(self.player_list)
+
     def get_playes(self) -> list[Player]:
         """return the list of players in the roster"""
         return self.player_list

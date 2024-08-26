@@ -15,20 +15,22 @@ from horizonpair.tournament.round import Round
 class Random(PairingSystem):
     """The a 100% random pairing system for tournaments"""
 
-    def pair(round_number: int, players: [Player]) -> Round:
+    def pair(round_number: int, roster: Roster) -> Round:
         """create the pairings randomly"""
-        number_of_players = len(players)
+        number_of_players = len(roster)
         assert number_of_players >= 2
 
         if (number_of_players % 2) == 1:
             # TODO: GIVE BYE
             raise NotImplementedError
 
+        players = roster.player_list
+
         # randomize the order of the list
         random.shuffle(players)
 
         # a place for the matches
-        matches = []
+        matches: list[Match] = []
         # go from 0 to number_of_players by steps of 2
         for n in range(0, number_of_players, 2):
 

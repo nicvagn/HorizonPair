@@ -22,7 +22,8 @@ class Match:
         self.over = False
         self.result: Result = None
 
-    def __str__(self) -> str:
+    def __repr__(self) -> str:
+        """a more detailed representation of the match"""
         return f"""--- match begin ---
 Match in round: {self.round}
 Is it over? { self.over }
@@ -32,6 +33,10 @@ White: { self.white_player }
 Black: { self.black_player }
 --- match end ---
 """
+
+    def __str__(self) -> str:
+        """a short str representation of the match"""
+        return f"{self.white_player.name} vs. {self.black_player.name}"
 
     def conclude(result: Result) -> None:
         """Signal that the Match has concluded, and result is the Result"""

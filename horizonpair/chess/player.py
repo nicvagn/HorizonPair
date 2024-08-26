@@ -5,15 +5,16 @@
 #
 #  you should have received a copy of the gnu general public license along with HorizonPair. if not, see <https://www.gnu.org/licenses/>.
 
+from horizonpair.cfc import CfcId
 from horizonpair.chess.colour import Colour
 
 
 class Player:
     """A chess player in a tournament."""
 
-    def __init__(self, name: str, cfc_id: str) -> None:
-        self.name = name
-        self.cfc_id = cfc_id
+    def __init__(self, name: str, cfc_id: CfcId) -> None:
+        self.name: str = name
+        self.cfc_id: CfcId = cfc_id
 
         # history of the matches this player has been in. Empty to start.
         self.match_history = list()
@@ -30,4 +31,4 @@ match history: { self.match_history }\n"""
         return self.name < other.name
 
     def colour_preferance(self) -> Colour:
-        pass
+        raise NotImplementedError
