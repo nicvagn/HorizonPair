@@ -23,6 +23,8 @@ class Roster:
         # for the basic roster, sort the players by name
         self.player_list = sorted(players)
 
+        self.number_of_players = len(self.player_list)
+
     def __str__(self) -> str:
         return "\n".join([str(player) for player in self.player_list])
 

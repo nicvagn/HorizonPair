@@ -22,13 +22,24 @@ class Tournament:
         acceleration_method=None,
         number_of_rounds: int = None,
         pairing_system: PairingSystem = None,
+        province: str = "SK",
     ) -> None:
-        self.number_of_rounds = number_of_rounds
-        self.completed_rounds: [Round] = None
-        self.pairing_system = pairing_system
-        self.match_record = list[Match]
-        self.roster: Roster = roster
+        # init attributes
         self.name: str = name
+        self.roster: Roster = roster
+        self.acceleration_method = acceleration_method
+        self.number_of_rounds: int = number_of_rounds
+        self.pairing_system = pairing_system
+        self.province: str = province
+
+        # FIXME:
+        self.td_cfc_id = "TD_id"
+        self.to_cfc_id = "TO_id"
+        self.date = "1969/00/00"
+
+        # other tournament attributes
+        self.completed_rounds: [Round] = None
+        self.match_record = list[Match]
         # start at the first round
         self.current_round = 1
 
