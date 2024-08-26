@@ -54,6 +54,7 @@ class App(Tk):
     def create_tournament(self):
         """Create a new tournament"""
         self.clear()
+        # display the create tournament frame
         self.current_frame = CreateTournamentFrame(self)
 
     def view_tournament(self):
