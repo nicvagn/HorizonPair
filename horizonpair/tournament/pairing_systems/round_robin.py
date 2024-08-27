@@ -23,7 +23,7 @@ from horizonpair.tournament.round import Round
 class RoundRobin(PairingSystem):
     """The round robin pairing system for tournaments as defined by CFC"""
 
-    def pair(round_number: int, players: [Player]) -> Round:
+    def pair(self, round_number: int, players: [Player]) -> Round:
         """create the pairings"""
         number_of_players = len(players)
         assert number_of_players >= 2

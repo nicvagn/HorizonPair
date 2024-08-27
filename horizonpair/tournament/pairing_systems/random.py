@@ -25,7 +25,7 @@ from horizonpair.tournament.round import Round
 class Random(PairingSystem):
     """The a 100% random pairing system for tournaments"""
 
-    def pair(round_number: int, roster: Roster) -> Round:
+    def pair(self, round_number: int, roster: Roster) -> Round:
         """create the pairings randomly"""
         number_of_players = len(roster)
         assert number_of_players >= 2
