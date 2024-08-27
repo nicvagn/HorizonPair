@@ -18,6 +18,7 @@ import random
 
 from horizonpair.chess import Match, Player
 from horizonpair.tournament.pairing_systems.system import PairingSystem
+from horizonpair.tournament.roster import Roster
 from horizonpair.tournament.round import Round
 
 
@@ -31,6 +32,7 @@ class Random(PairingSystem):
 
         if (number_of_players % 2) == 1:
             # TODO: GIVE BYE
+            # if there is an odd number of players, give a bye
             raise NotImplementedError
 
         players = roster.player_list

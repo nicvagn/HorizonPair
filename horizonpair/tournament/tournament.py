@@ -37,8 +37,11 @@ class Tournament:
         to_cfc_id: CfcId = "000000",
         date="0000/00/00",
     ) -> None:
-        # init attributes
+        # ensure all parameters are acounted for (some are left with default values for now)
+        assert roster is not None
+        assert pairing_system is not None
 
+        # init attributes
         self.name: str = name
         self.roster: Roster = roster
         self.acceleration_method = acceleration_method

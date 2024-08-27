@@ -20,6 +20,7 @@ from horizonpair.chess.result import Result
 from horizonpair.tournament import Round, Tournament
 from horizonpair.tournament.pairing_systems import Random
 
+# FIXME: INIT PLAYERS WITH CfcId INSTEAD OF STRINGS
 list_players = [
     Player("lllllllll", "ididididid"),
     Player("ttttttttt", "ididididid"),
@@ -30,8 +31,9 @@ list_players = [
     Player("sssssssss", "ididididid"),
     Player("#########", "ididididid"),
 ]
-t = Tournament(5, Random, list_players, "test tournament")
-round = t.pair_round()
+breakpoint()
+t = Tournament()
+round = t.pair_next_round()
 
 
 def test() -> bool:
