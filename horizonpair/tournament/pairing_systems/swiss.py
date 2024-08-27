@@ -23,5 +23,5 @@ class Swiss(PairingSystem):
 
     # TODO: this
 
-    def pair(players: [Player]) -> Round:
-        pass
+    def pair(self, round_number: int, players: [Player]) -> Round:
+        raise NotImplementedError

@@ -45,12 +45,28 @@ Black: { self.black_player }
 
     def __str__(self) -> str:
         """a short str representation of the match"""
-        return f"{self.white_player.name} vs. {self.black_player.name}"
+        return f"{self.white_player.name} vs. {self.black_player.name}: result {self.result}"
 
-    def conclude(result: Result) -> None:
+    def conclude(self, result: Result) -> None:
         """Signal that the Match has concluded, and result is the Result"""
         self.over = True
         self.result = result
+
+    def get_winner(self) -> Player:
+        """Get the winner of the match"""
+        if self.result == Result.WHITE_WON:
+            return self.white_player
+        elif self.result == Result.BLACK_WON:
+            return self.black_player
+        else:
+            return None
+
+    def get_result(self) -> Result:
+        """Get the result of the match if over. Otherwise None"""
+        if self.over:
+            return self.result
+        else:
+            return None
 
 
 if __name__ == "__main__":

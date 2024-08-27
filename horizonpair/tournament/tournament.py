@@ -54,12 +54,14 @@ class Tournament:
 
         # other tournament attributes:
 
-        self.completed_rounds: [Round] = list()
-        # the round that is currently being played
-        self.current_round: Round = None
-        self.current_round_num: int = None
         # start at the first round
-        self.current_round_num = 1
+        self.current_round_num: int = 1
+        # passed rounds
+        self.completed_rounds: [Round] = list()
+        # pair the first round of the tournament
+        self.current_round: Round = self.pairing_system.pair(
+            self.current_round_num, self.roster
+        )
 
     def __str__(self) -> str:
         """give a str representation of the tournament"""
@@ -71,7 +73,7 @@ class Tournament:
         )
         return rep
 
-    def pair_next_round(self) -> None:
+    def pair_next_round(self) -> Round:
         """pair the next round in the tournament
         side effects: +1 to the current round, add current round to completed rounds
         """
@@ -86,6 +88,8 @@ class Tournament:
 
         # update the current round to the newly paired one
         self.current_round = new_round
+
+        return self.current_round
 
     def get_roster(self) -> Roster:
         """return the roster of the tournament"""
