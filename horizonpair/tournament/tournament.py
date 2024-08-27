@@ -101,7 +101,7 @@ class Tournament:
 
 
 def test() -> bool:
-    t = Tournament(4, Random)
+    t = Tournament(4, Random())
     return True
 
 

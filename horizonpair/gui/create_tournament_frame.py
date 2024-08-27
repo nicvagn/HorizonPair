@@ -40,7 +40,7 @@ class CreateTournamentFrame(ttk.Frame):
     def __init__(self, parent) -> None:
         super().__init__(parent)
         self.parent = parent
-        self.grid()
+        self.grid(sticky=(N, S, E, W))
         # frame config
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
@@ -50,32 +50,42 @@ class CreateTournamentFrame(ttk.Frame):
         # VARIABLES - needed for widgets
         pairing_system = StringVar()
         # WIDGETS
-        ttk.Label(self, text="Name:").grid(row=0, column=0)
+        ttk.Label(self, text="Name:").grid(row=0, column=0, sticky=(N, E, W))
         name_entry = ttk.Entry(self).grid(row=0, column=1)
 
-        ttk.Label(self, text="pairing system:").grid(row=1, column=0)
+        ttk.Label(self, text="pairing system:").grid(row=1, column=0, sticky=(N, E, W))
         swiss_system_rb = ttk.Radiobutton(
             self, text="swiss", variable=pairing_system, value="swiss"
-        ).grid(row=1, column=1)
+        ).grid(row=1, column=1, sticky=(E, W))
         random_system_rb = ttk.Radiobutton(
             self, text="random", variable=pairing_system, value="random"
-        ).grid(row=1, column=2)
+        ).grid(row=1, column=2, sticky=(E, W))
 
-        ttk.Label(self, text="Number of rounds:").grid(row=3, column=0)
-        num_rounds_entry_btn = ttk.Spinbox(self, from_=1, to=20).grid(row=3, column=1)
+        ttk.Label(self, text="Number of rounds:").grid(
+            row=3, column=0, sticky=(N, E, W)
+        )
+        num_rounds_entry_btn = ttk.Spinbox(self, from_=1, to=20).grid(
+            row=3, column=1, sticky=(E, W)
+        )
 
-        ttk.Label(self, text="Acceleration method:").grid(row=4, column=0)
+        ttk.Label(self, text="Acceleration method:").grid(
+            row=4, column=0, sticky=(N, E, W)
+        )
         no_acceleration_btn = ttk.Radiobutton(
             self, text="no acceleration", value="no"
-        ).grid(row=4, column=1)
+        ).grid(row=4, column=1, sticky=(E, W))
+
+        acceleration_btn = ttk.Radiobutton(
+            self, text="acceleration", value="acceleration"
+        ).grid(row=4, column=2, sticky=(E, W))
 
         self.add_player_btn = ttk.Button(
             self, text="Add Player", command=self.add_player
-        ).grid(row=8, column=2)
+        ).grid(row=8, column=2, sticky=(N, E, W))
 
         self.new_tournament_btn = ttk.Button(
             self, text="Submit", command=self.submit
-        ).grid(row=8, column=3)
+        ).grid(row=8, column=3, sticky=(N, E, W))
 
     def add_player(self):
         """Add a player to the Tournament"""

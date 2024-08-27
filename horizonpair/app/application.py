@@ -17,22 +17,16 @@ from time import sleep
 from tkinter import *
 from tkinter import ttk
 
-from horizonpair.chess.colour import Colour
-from horizonpair.chess.match import Match
-from horizonpair.chess.player import Player
-from horizonpair.chess.result import Result
-from horizonpair.gui.create_tournament_frame import CreateTournamentFrame
-from horizonpair.gui.welcome_frame import WelcomeFrame
+from horizonpair.chess import Colour, Match, Player, Result
+from horizonpair.gui import CreateTournamentFrame, ViewTournamentFrame, WelcomeFrame
 from horizonpair.gui.widget import (
     MatchWidget,
     PlayerWidget,
     RosterWidget,
     TournamentWidget,
 )
-from horizonpair.test.widget_display_test import WidgetTest
-from horizonpair.tournament import Roster, Tournament
+from horizonpair.tournament import Roster, Round, Tournament
 from horizonpair.tournament.pairing_systems import PairingSystem, Random
-from horizonpair.tournament.round import Round
 
 
 class App(Tk):
@@ -48,7 +42,7 @@ class App(Tk):
         menu_file = Menu(menubar)
         menu_edit = Menu(menubar)
         menubar.add_cascade(menu=menu_file, label="Load")
-        menubar.add_cascade(menu=menu_edit, label="IDK")
+        menubar.add_command(label="Home", command=self.home)
 
         self.config(menu=menubar)
 
@@ -58,6 +52,20 @@ class App(Tk):
     def clear(self):
         """Clear the window"""
         self.current_frame.destroy()
+
+    def show_frame(self, frame_class: ttk.Frame):
+        """Show a frame
+        Args:
+            frame_class: the frame class to show, can be any subclass of ttk.Frame
+        """
+        self.clear()
+        self.current_frame = frame_class(self)
+        self.current_frame.grid(row=0, column=0, sticky=(N, S, E, W))
+
+    def home(self):
+        """Go to the home frame"""
+        self.clear()
+        self.current_frame = WelcomeFrame(self)
 
     def create_tournament(self):
         """Create a new tournament"""
@@ -72,7 +80,7 @@ class App(Tk):
 
         # TODO: THIS IS TEST
         number_of_rounds = 4
-        pairing_system = Random
+        pairing_system = Random()
         rotster = Roster(
             [
                 Player("player1", "cfc id player1"),
@@ -89,8 +97,9 @@ class App(Tk):
             number_of_rounds=number_of_rounds,
         )
 
-        self.tournament_frame = TournamentWidget(self.current_frame, self.tournament)
-        self.tournament_frame.grid(column=0, row=0, sticky=(N, W, E, S))
+        self.tournament_frame = ViewTournamentFrame(self, self.tournament)
+        # show the tournament frame
+        self.show_frame(self.tournament_frame)
 
 
 def start() -> None:

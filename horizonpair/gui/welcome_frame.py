@@ -39,7 +39,7 @@ class WelcomeFrame(ttk.Frame):
     def __init__(self, parent) -> None:
         super().__init__(parent)
         self.parent = parent
-        self.grid()
+        self.grid(sticky=(N, S, E, W))
         # frame config
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
@@ -47,24 +47,24 @@ class WelcomeFrame(ttk.Frame):
         self["padding"] = 50  # internal padding inside the frame
         # WIDGETS
         ttk.Label(self, text="HorizonPair", font=("tkCaptionFont", 24)).grid(
-            row=0, column=0
+            row=0, column=0, sticky=(N, E, W)
         )
 
         self.create_tournament_btn = ttk.Button(
             self, text="New Tournament", command=self.create_tournament
-        ).grid(row=1, column=0)
+        ).grid(row=1, column=0, sticky=(N, E, W))
 
         self.view_tournament_btn = ttk.Button(
             self, text="View Tournament", command=parent.view_tournament
-        ).grid(row=2, column=0)
+        ).grid(row=2, column=0, sticky=(N, E, W))
 
         self.add_player_btn = ttk.Button(
             self, text="Add Player", command=self.add_player
-        ).grid(row=3, column=0)
+        ).grid(row=3, column=0, sticky=(N, E, W))
 
         self.view_players_btn = ttk.Button(
             self, text="View Players", command=self.view_players
-        ).grid(row=4, column=0)
+        ).grid(row=4, column=0, sticky=(N, E, W))
 
     def create_tournament(self):
         """Create a new tournament"""
@@ -85,7 +85,6 @@ class WelcomeFrame(ttk.Frame):
 
 def main() -> None:
     raise NotImplementedError
-    root.mainloop()
 
 
 if __name__ == "__main__":

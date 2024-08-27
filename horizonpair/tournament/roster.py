@@ -14,6 +14,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+from horizonpair.cfc import CfcId
 from horizonpair.chess.colour import Colour
 from horizonpair.chess.match import Match
 from horizonpair.chess.player import Player
@@ -27,8 +28,7 @@ class Roster:
         """arguments:
         players[list[Player]] -- The list of players in the roster
         """
-        self.player_list = players
-        # for the basic roster, sort the players by name
+        # for the basic roster, sort the players py p.__lt__()
         self.player_list = sorted(players)
 
         self.number_of_players = len(self.player_list)
@@ -37,7 +37,7 @@ class Roster:
         return "\n".join([str(player) for player in self.player_list])
 
     def __repr__(self) -> str:
-        return self.__str__()
+        return "\n".join([repr(player) for player in self.player_list])
 
     def __len__(self) -> int:
         return len(self.player_list)
@@ -49,10 +49,10 @@ class Roster:
 
 def test() -> None:
     player_list = [
-        Player("player 1", "cfc id 1"),
-        Player("player 2", "cfc id 2"),
-        Player("player 3", "cfc id 3"),
-        Player("player 4", "cfc id 4"),
+        Player("player 1", CfcId("111111")),
+        Player("player 2", CfcId("222222")),
+        Player("player 3", CfcId("333333")),
+        Player("player 4", CfcId("444444")),
     ]
     roster = Roster(player_list)
     print(roster)

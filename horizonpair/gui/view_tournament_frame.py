@@ -14,63 +14,45 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# FIX: NOT IN USE
 from time import sleep
 from tkinter import *
 from tkinter import ttk
 
-from horizonpair.chess.colour import Colour
-from horizonpair.chess.match import Match
-from horizonpair.chess.player import Player
-from horizonpair.chess.result import Result
+from horizonpair.chess import Colour, Match, Player, Result
 from horizonpair.gui.widget import (
     MatchWidget,
     PlayerWidget,
     RosterWidget,
     TournamentWidget,
 )
-from horizonpair.test.widget_display_test import WidgetTest
-from horizonpair.tournament import Roster, Tournament
+from horizonpair.tournament import Roster, Round, Tournament
 from horizonpair.tournament.pairing_systems import PairingSystem, Random
-from horizonpair.tournament.round import Round
 
 
 class ViewTournamentFrame(ttk.Frame):
     """The View Tournament frame for the GUI"""
 
-    def __init__(self, parent) -> None:
+    def __init__(self, parent, tournament: Tournament) -> None:
+        """Args:
+        parent: the parent tkinter frame
+        tournament: the tournament object to display in the frame
+        """
         super().__init__(parent)
         self.parent = parent
-        self.grid()
+        self.grid(sticky=(N, S, E, W))
         # frame config
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
         self["borderwidth"] = 12
         self["padding"] = 50  # internal padding inside the frame
         # WIDGETS
-        ttk.Label(self, text="HorizonPair", font=("tkCaptionFont", 24)).grid(
-            row=0, column=0
+        ttk.Label(self, text=f"{tournament.name}", font=("tkCaptionFont", 24)).grid(
+            row=0, column=0, sticky=(N, W, E)
         )
 
+        self.tournament = tournament
+        self.tournament_frame = TournamentWidget(self, self.tournament)
+        self.tournament_frame.grid(column=0, row=1, sticky=(N, W, E, S))
 
-def test() -> None:
-    number_of_rounds = 4
-    pairing_system = Random
-    rotster = Roster(
-        [
-            Player("player1", "cfc id player1"),
-            Player("player2", "cfc id player2"),
-            Player("player3", "cfc id player3"),
-            Player("player4", "cfc id player4"),
-        ]
-    )
-    name = "Test tournament"
-
-    self.tournament = Tournament(number_of_rounds, pairing_system, rotster, name)
-
-    self.tournament_frame = TournamentWidget(self, self.tournament)
-    self.tournament_frame.grid(column=0, row=0, sticky=(N, W, E, S))
-
-
-if __name__ == "__main__":
-    test()
+        self.roster_widget = RosterWidget(self, self.tournament.get_roster())
+        self.roster_widget.grid(column=1, row=1, sticky=(N, W, E, S))
