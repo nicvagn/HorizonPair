@@ -14,6 +14,8 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+from typing import List
+
 from horizonpair.cfc.id import CfcId
 from horizonpair.chess import Match, Player
 from horizonpair.tournament.pairing_systems.random import Random
@@ -28,13 +30,13 @@ class Tournament:
     def __init__(
         self,
         name: str = "HorizonPair",
-        roster: Roster = None,
+        roster: Roster | None = None,
         acceleration_method=None,
-        number_of_rounds: int = None,
-        pairing_system: PairingSystem = None,
+        number_of_rounds: int = 3,
+        pairing_system: PairingSystem | None = None,
         province: str = "SK",
-        td_cfc_id: CfcId = "000000",
-        to_cfc_id: CfcId = "000000",
+        td_cfc_id: CfcId = CfcId("000000"),
+        to_cfc_id: CfcId = CfcId("000000"),
         date="0000/00/00",
     ) -> None:
         # ensure all parameters are acounted for (some are left with default values for now)
@@ -57,7 +59,7 @@ class Tournament:
         # start at the first round
         self.current_round_num: int = 1
         # passed rounds
-        self.completed_rounds: [Round] = list()
+        self.completed_rounds: List[Round] = list()
         # pair the first round of the tournament
         self.current_round: Round = self.pairing_system.pair(
             self.current_round_num, self.roster
@@ -101,7 +103,7 @@ class Tournament:
 
 
 def test() -> bool:
-    t = Tournament(4, Random())
+    # TODO: write tests
     return True
 
 

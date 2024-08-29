@@ -14,10 +14,10 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+from horizonpair.tournament import Roster, Round
+
 # round robin
-from horizonpair.tournament.pairing_systems.system import PairingSystem
-from horizonpair.tournament.roster import Roster
-from horizonpair.tournament.round import Round
+from horizonpair.tournament.pairing_systems import PairingSystem
 
 
 class RoundRobin(PairingSystem):

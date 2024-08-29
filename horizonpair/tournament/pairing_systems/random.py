@@ -15,6 +15,7 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import random
+from typing import List
 
 from horizonpair.chess import Match, Player
 from horizonpair.tournament.pairing_systems.system import PairingSystem
@@ -35,7 +36,7 @@ class Random(PairingSystem):
             # if there is an odd number of players, give a bye
             raise NotImplementedError
 
-        players = roster.player_list
+        players: List[Player] = roster.player_list
 
         # randomize the order of the list
         random.shuffle(players)

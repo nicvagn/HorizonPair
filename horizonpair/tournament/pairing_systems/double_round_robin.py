@@ -15,16 +15,16 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 from horizonpair.chess import Player
-from horizonpair.tournament.pairing_systems.system import PairingSystem
-from horizonpair.tournament.round import Round
+from horizonpair.tournament import Roster, Round
+from horizonpair.tournament.pairing_systems import PairingSystem
 
 
 class DoubleRoundRobin(PairingSystem):
     """The Double Round Robin pairing system for tournaments as defined by CFC"""
 
-    def pair(self, round_number: int, players: [Player]) -> Round:
+    def pair(self, round_number: int, roster: Roster) -> Round:
         """create the pairings"""
-        number_of_players = len(players)
+        number_of_players = roster.number_of_players
         assert number_of_players >= 2
 
         raise NotImplementedError

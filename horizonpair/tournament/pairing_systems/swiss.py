@@ -15,7 +15,7 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 from horizonpair.chess import Match, Player
 from horizonpair.tournament import Roster, Round
-from horizonpair.tournament.pairing_systems.system import PairingSystem
+from horizonpair.tournament.pairing_systems import PairingSystem
 
 
 class Swiss(PairingSystem):
