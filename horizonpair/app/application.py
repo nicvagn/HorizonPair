@@ -17,16 +17,14 @@ from time import sleep
 from tkinter import *
 from tkinter import ttk
 
-from horizonpair.chess import Colour, Match, Player, Result
-from horizonpair.gui import CreateTournamentFrame, ViewTournamentFrame, WelcomeFrame
-from horizonpair.gui.widget import (
-    MatchWidget,
-    PlayerWidget,
-    RosterWidget,
-    TournamentWidget,
+from horizonpair.chess import Player
+from horizonpair.gui import (
+    AddPlayerFrame,
+    CreateTournamentFrame,
+    ViewTournamentFrame,
+    WelcomeFrame,
 )
-from horizonpair.tournament import Roster, Round, Tournament
-from horizonpair.tournament.pairing_systems import PairingSystem, Random
+from horizonpair.tournament import Roster, Tournament
 
 
 class App(Tk):
@@ -39,27 +37,36 @@ class App(Tk):
         self.option_add("*tearOff", False)
 
         menubar = Menu(self)
-        menu_file = Menu(menubar)
+        menu_home = Menu(menubar)
         menu_edit = Menu(menubar)
-        menubar.add_cascade(menu=menu_file, label="Load")
+        menubar.add_cascade(menu=menu_home, label="Load")
         menubar.add_command(label="Home", command=self.home)
 
         self.config(menu=menubar)
 
-        # copy of the shown frame
-        self.current_frame = WelcomeFrame(self)
+        self.root_frame = ttk.Frame(self)
+
+        self.current_frame = None
+
+        # copy of the shown frame, and show welcome frame
+        self.show_frame(WelcomeFrame(self))
+
+        # data
+        self.players = []
+        self.tournaments = []
 
     def clear(self):
         """Clear the window"""
-        self.current_frame.destroy()
+        if self.current_frame is not None:
+            self.current_frame.destroy()
 
-    def show_frame(self, frame_class: ttk.Frame):
+    def show_frame(self, frame: ttk.Frame):
         """Show a frame
         Args:
-            frame_class: the frame class to show, can be any subclass of ttk.Frame
+            frame: the frame to show, can be any subclass of ttk.Frame
         """
         self.clear()
-        self.current_frame = frame_class(self)
+        self.current_frame = frame
         self.current_frame.grid(row=0, column=0, sticky=(N, S, E, W))
 
     def home(self):
@@ -76,30 +83,17 @@ class App(Tk):
     def view_tournament(self):
         """View a tournament"""
         # TODO: ADD ABILITY TO CHOOSE A TOURNAMENT TO VIEW
-        self.clear()
 
-        # TODO: THIS IS TEST
-        number_of_rounds = 4
-        pairing_system = Random()
-        rotster = Roster(
-            [
-                Player("player1", "cfc id player1"),
-                Player("player2", "cfc id player2"),
-                Player("player3", "cfc id player3"),
-                Player("player4", "cfc id player4"),
-            ]
-        )
-        name = "Test tournament"
-        self.tournament = Tournament(
-            name="Test Tournament",
-            roster=rotster,
-            pairing_system=pairing_system,
-            number_of_rounds=number_of_rounds,
-        )
+    def show_add_player_frame(self):
+        """Show the add player frame"""
 
-        self.tournament_frame = ViewTournamentFrame(self, self.tournament)
-        # show the tournament frame
-        self.show_frame(self.tournament_frame)
+        self.show_frame(AddPlayerFrame(self))
+
+    def add_player(self, player: Player):
+        """Add a player to the internal players db"""
+        # TODO: ADD A PLAYER TO A PERSISTANT DATABASE
+
+        self.players.append(player)
 
 
 def start() -> None:
@@ -110,4 +104,4 @@ def start() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    start()

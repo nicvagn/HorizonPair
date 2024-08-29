@@ -14,24 +14,10 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from time import sleep
 from tkinter import *
 from tkinter import ttk
 
-from horizonpair.chess.colour import Colour
-from horizonpair.chess.match import Match
-from horizonpair.chess.player import Player
-from horizonpair.chess.result import Result
-from horizonpair.gui.widget import (
-    MatchWidget,
-    PlayerWidget,
-    RosterWidget,
-    TournamentWidget,
-)
-from horizonpair.test.widget_display_test import WidgetTest
 from horizonpair.tournament import Roster, Tournament
-from horizonpair.tournament.pairing_systems import PairingSystem, Random
-from horizonpair.tournament.round import Round
 
 
 class CreateTournamentFrame(ttk.Frame):
@@ -64,7 +50,7 @@ class CreateTournamentFrame(ttk.Frame):
         ttk.Label(self, text="Number of rounds:").grid(
             row=3, column=0, sticky=(N, E, W)
         )
-        num_rounds_entry_btn = ttk.Spinbox(self, from_=1, to=20).grid(
+        num_rounds_entry_sbx = ttk.Spinbox(self, from_=1, to=20).grid(
             row=3, column=1, sticky=(E, W)
         )
 

@@ -13,24 +13,8 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-from time import sleep
 from tkinter import *
 from tkinter import ttk
-
-from horizonpair.chess.colour import Colour
-from horizonpair.chess.match import Match
-from horizonpair.chess.player import Player
-from horizonpair.chess.result import Result
-from horizonpair.gui.widget import (
-    MatchWidget,
-    PlayerWidget,
-    RosterWidget,
-    TournamentWidget,
-)
-from horizonpair.test.widget_display_test import WidgetTest
-from horizonpair.tournament import Roster, Tournament
-from horizonpair.tournament.pairing_systems import PairingSystem, Random
-from horizonpair.tournament.round import Round
 
 
 class WelcomeFrame(ttk.Frame):
@@ -68,14 +52,12 @@ class WelcomeFrame(ttk.Frame):
 
     def create_tournament(self):
         """Create a new tournament"""
-        # TODO: ADD UI TO CREATE A NEW TOURNAMENT
-
         self.parent.create_tournament()
 
     def add_player(self):
         """Add a player to the HorizonPair system"""
-        # TODO: ADD UI TO ADD A PLAYER
-        raise NotImplementedError
+        # TODO: add player to the database
+        self.parent.show_add_player_frame()
 
     def view_players(self):
         """View the players in the HorizonPair system"""
