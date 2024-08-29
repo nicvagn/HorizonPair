@@ -17,6 +17,7 @@
 from tkinter import *
 from tkinter import ttk
 
+from horizonpair.cfc.id import CfcId
 from horizonpair.chess import Player
 
 
@@ -50,11 +51,11 @@ class AddPlayerFrame(ttk.Frame):
 
         # CFC ID
         ttk.Label(self, text="CFC ID:", font=("tkCaptionFont", 14)).grid(
-            row=1, column=3, sticky=(N, W)
+            row=2, column=0, sticky=(N, W)
         )
         self.cfc_id = StringVar()
         ttk.Entry(self, textvariable=self.cfc_id).grid(
-            row=1, column=3, sticky=(N, W, E)
+            row=2, column=1, sticky=(N, W, E)
         )
 
         # add player button
@@ -62,10 +63,10 @@ class AddPlayerFrame(ttk.Frame):
             self,
             text="Add player to HorizonPair database",
             command=self.add_player,
-        ).grid(row=6, column=6, sticky=(S, E))
+        ).grid(row=3, column=1, sticky=(S, E))
 
     def add_player(self) -> None:
         """Add the player to the application database"""
-        player = Player(name=self.player_name.get(), cfc_id=self.cfc_id.get())
+        player = Player(name=self.player_name.get(), cfc_id=CfcId(self.cfc_id.get()))
         # add the player to the database, ie pass it up the chain.
         self.parent.add_player(player)

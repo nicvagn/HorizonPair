@@ -44,12 +44,13 @@ class App(Tk):
 
         self.config(menu=menubar)
 
+        # the root frame of the gui
         self.root_frame = ttk.Frame(self)
 
         self.current_frame = None
 
         # copy of the shown frame, and show welcome frame
-        self.show_frame(WelcomeFrame(self))
+        self.swap_frame(WelcomeFrame(self))
 
         # data
         self.players = []
@@ -60,25 +61,24 @@ class App(Tk):
         if self.current_frame is not None:
             self.current_frame.destroy()
 
-    def show_frame(self, frame: ttk.Frame):
-        """Show a frame
+    def swap_frame(self, frame: ttk.Frame):
+        """Swap the shown frame in the GUI
         Args:
             frame: the frame to show, can be any subclass of ttk.Frame
         """
-        self.clear()
-        self.current_frame = frame
-        self.current_frame.grid(row=0, column=0, sticky=(N, S, E, W))
+        if frame is not None:
+            self.clear()
+            self.current_frame = frame
+            self.current_frame.grid(row=0, column=0, sticky=(N, S, E, W))
 
     def home(self):
         """Go to the home frame"""
-        self.clear()
-        self.current_frame = WelcomeFrame(self)
+        self.swap_frame(WelcomeFrame(self))
 
     def create_tournament(self):
         """Create a new tournament"""
-        self.clear()
         # display the create tournament frame
-        self.current_frame = CreateTournamentFrame(self)
+        self.swap_frame(CreateTournamentFrame(self))
 
     def view_tournament(self):
         """View a tournament"""
@@ -87,7 +87,7 @@ class App(Tk):
     def show_add_player_frame(self):
         """Show the add player frame"""
 
-        self.show_frame(AddPlayerFrame(self))
+        self.swap_frame(AddPlayerFrame(self))
 
     def add_player(self, player: Player):
         """Add a player to the internal players db"""
