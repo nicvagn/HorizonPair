@@ -14,18 +14,20 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+
 from horizonpair.chess.match import Match
 from horizonpair.chess.player import Player
+from horizonpair.tournament.roster import Roster
 from horizonpair.tournament.round import Round
 
 
 class PairingSystem:
     """A pairing system to pair a chess tournament. This is a base class to be expanded on."""
 
-    def pair(round_number: int, players: [Player]) -> Round:
+    def pair(self, round_number: int, roster: Roster) -> Round:
         """pair a list of players into a round"""
         raise NotImplementedError()
 
-    def make_match(white: Player, black: Player) -> Match:
+    def make_match(self, white: Player, black: Player) -> Match:
         """make a chess match between two players"""
         return Match(white_player=white, black_player=black)

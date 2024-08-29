@@ -14,8 +14,8 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 from horizonpair.chess import Match, Player
+from horizonpair.tournament import Roster, Round
 from horizonpair.tournament.pairing_systems.system import PairingSystem
-from horizonpair.tournament.round import Round
 
 
 class Swiss(PairingSystem):
@@ -23,5 +23,5 @@ class Swiss(PairingSystem):
 
     # TODO: this
 
-    def pair(self, round_number: int, players: [Player]) -> Round:
+    def pair(self, round_number: int, roster: Roster) -> Round:
         raise NotImplementedError

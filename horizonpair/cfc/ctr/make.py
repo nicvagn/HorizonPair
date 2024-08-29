@@ -14,8 +14,11 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+from typing import List
+
 # make a ctr tournament report file
 from horizonpair.app.exceptions import CtrCreationException
+from horizonpair.cfc import CfcId
 from horizonpair.chess import Match, Player, Result
 from horizonpair.tournament import Roster, Tournament
 from horizonpair.tournament.pairing_systems import (
@@ -54,7 +57,7 @@ class CTR:
             # Round Robin is default, I think this works ie: I think there are only 2 options
             pairing_abriviation = "R"
 
-        self.ctr: [str] = []
+        self.ctr: List[str] = []
         self.ctr.append(
             f'"{t.name}","{t.province}","0","{pairing_abriviation}","{t.date}","{
                 t.roster.number_of_players}","{t.td_cfc_id}","{t.to_cfc_id}"'
@@ -85,11 +88,11 @@ class CTR:
 
         # write the ctr report to file
         ctr_report = open("ctr_report.crt", "w")
-        for line in ctr:
+        for line in self.ctr:
             ctr_report.write(line)
         ctr_report.close()
 
-    def make_match_report(self, match: Match, player: Player) -> [str]:
+    def make_match_report(self, match: Match, player: Player) -> List[str]:
         """make a match part of ctr report file for a given player
         returns: a list of strings to be written to ctr_report one per line"""
 
@@ -106,7 +109,7 @@ class CTR:
             poins = 0
 
         # match report
-        match_report: [str] = []
+        match_report: List[str] = []
 
         # line 1
         match_report.append(f'"{player.cfc_id}"')
@@ -124,10 +127,9 @@ class CTR:
 if __name__ == "__main__":
 
     player_list = [
-        Player("player 1", "111111"),
-        Player("player 2", "222222"),
-        Player("player 3", "333333"),
-        Player("player 4", "444444"),
+        Player("Nicolas", CfcId("111111")),
+        Player("Alex", CfcId("222222")),
+        Player("Cyril", CfcId("333333")),
     ]
     roster = Roster(player_list)
     t = Tournament(

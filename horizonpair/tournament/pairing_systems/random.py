@@ -27,7 +27,7 @@ class Random(PairingSystem):
 
     def pair(self, round_number: int, roster: Roster) -> Round:
         """create the pairings randomly"""
-        number_of_players = len(roster)
+        number_of_players = roster.number_of_players
         assert number_of_players >= 2
 
         if (number_of_players % 2) == 1:
