@@ -17,8 +17,6 @@
 from typing import List
 
 from horizonpair.cfc.id import CfcId
-from horizonpair.chess import Match, Player
-from horizonpair.tournament.pairing_systems.random import Random
 from horizonpair.tournament.pairing_systems.system import PairingSystem
 from horizonpair.tournament.roster import Roster
 from horizonpair.tournament.round import Round
@@ -104,7 +102,7 @@ class Tournament:
 
 def test() -> bool:
     # TODO: write tests
-    return True
+    raise NotImplementedError()
 
 
 if __name__ == "__main__":

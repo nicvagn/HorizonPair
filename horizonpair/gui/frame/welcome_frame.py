@@ -13,7 +13,6 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-from tkinter import *
 from tkinter import ttk
 
 
@@ -23,7 +22,7 @@ class WelcomeFrame(ttk.Frame):
     def __init__(self, parent) -> None:
         super().__init__(parent)
         self.parent = parent
-        self.grid(sticky=(N, S, E, W))
+        self.grid(sticky="nsew")
         # frame config
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
@@ -31,24 +30,24 @@ class WelcomeFrame(ttk.Frame):
         self["padding"] = 50  # internal padding inside the frame
         # WIDGETS
         ttk.Label(self, text="HorizonPair", font=("tkCaptionFont", 24)).grid(
-            row=0, column=0, sticky=(N, E, W)
+            row=0, column=0, sticky="nwe"
         )
 
         self.create_tournament_btn = ttk.Button(
             self, text="New Tournament", command=self.create_tournament
-        ).grid(row=1, column=0, sticky=(N, E, W))
+        ).grid(row=1, column=0, sticky="new")
 
         self.view_tournament_btn = ttk.Button(
             self, text="View Tournament", command=parent.view_tournament
-        ).grid(row=2, column=0, sticky=(N, E, W))
+        ).grid(row=2, column=0, sticky="new")
 
         self.add_player_btn = ttk.Button(
             self, text="Add Player", command=self.add_player
-        ).grid(row=3, column=0, sticky=(N, E, W))
+        ).grid(row=3, column=0, sticky="new")
 
         self.view_players_btn = ttk.Button(
             self, text="View Players", command=self.view_players
-        ).grid(row=4, column=0, sticky=(N, E, W))
+        ).grid(row=4, column=0, sticky="new")
 
     def create_tournament(self):
         """Create a new tournament"""

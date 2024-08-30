@@ -13,6 +13,8 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+from typing import List
+
 from horizonpair.chess.match import Match
 from horizonpair.chess.player import Player
 
@@ -20,7 +22,7 @@ from horizonpair.chess.player import Player
 class Round:
     """A round of chess games that are part of a tournament"""
 
-    def __init__(self, round_number: int, matches: [Match]) -> None:
+    def __init__(self, round_number: int, matches: List[Match]) -> None:
         self.round_number = round_number
         self.matches = matches
 
@@ -47,7 +49,7 @@ class Round:
         """Get the number of matches in this round."""
         return len(self.matches)
 
-    def get_match_by_player(self, player: Player) -> Match:
+    def get_match_by_player(self, player: Player) -> Match | None:
         """Get the first match that has the given player as white or black."""
         for m in self.matches:
             if m.white_player == player or m.black_player == player:

@@ -13,7 +13,7 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-from tkinter import *
+import tkinter
 from tkinter import ttk
 
 from horizonpair.chess.colour import Colour
@@ -48,7 +48,7 @@ class MatchWidget(ttk.Frame):
     def __init__(self, parent, match: Match):
         super().__init__(parent, padding="3 3 12 12")
 
-        self.grid(column=0, row=0, sticky=(N, W, E, S))
+        self.grid(column=0, row=0, sticky="nsew")
         # White Player
         ttk.Label(self, text=f"White: { match.white_player }", style="WB.TLabel").grid(
             column=1, row=1, padx=3, pady=3
@@ -58,23 +58,3 @@ class MatchWidget(ttk.Frame):
         ttk.Label(self, text=f"Black: { match.black_player }", style="BW.TLabel").grid(
             column=2, row=1, padx=3, pady=3
         )
-
-    def get_match(self) -> Match:
-        """Get the match shown in this widget"""
-        return self.match
-
-
-def test() -> None:
-    root = Tk()
-    root.title("match widget")
-
-    # define the match shown
-    match = Match(Player("nicolas vaagen", "176141"), Player("rob bin ", "276141"))
-    widget = MatchWidget(root, match)
-
-    # print_hierarchy(widget)
-    root.mainloop()
-
-
-if __name__ == "__main__":
-    test()

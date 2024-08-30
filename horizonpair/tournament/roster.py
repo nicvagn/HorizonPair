@@ -15,10 +15,7 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 from horizonpair.cfc import CfcId
-from horizonpair.chess.colour import Colour
-from horizonpair.chess.match import Match
 from horizonpair.chess.player import Player
-from horizonpair.chess.result import Result
 
 
 class Roster:

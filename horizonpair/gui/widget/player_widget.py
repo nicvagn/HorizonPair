@@ -13,7 +13,6 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-from tkinter import *
 from tkinter import ttk
 
 from horizonpair.chess.player import Player
@@ -29,7 +28,7 @@ class PlayerWidget(ttk.Frame):
         """
         super().__init__(parent, padding="3 3 12 12")
 
-        self.grid(column=0, row=0, sticky=(N, W, E, S))
+        self.grid(column=0, row=0, sticky="nsew")
         ttk.Label(self, text=f"Name: { player.name }").grid(
             column=1, row=1, padx=1, pady=1
         )
@@ -37,22 +36,3 @@ class PlayerWidget(ttk.Frame):
         ttk.Label(self, text=f"CFC ID: { player.cfc_id }", style="BW.TLabel").grid(
             column=2, row=1, padx=1, pady=1
         )
-
-    def get_player(self) -> Player:
-        """Get the player shown in this widget"""
-        return self.player
-
-
-def test() -> None:
-    root = Tk()
-    root.title("Player widget")
-    player = Player("nrv", "111111111")
-    # define the player widget shown
-    widget = PlayerWidget(root, player)
-
-    # print_hierarchy(widget)
-    root.mainloop()
-
-
-if __name__ == "__main__":
-    test()

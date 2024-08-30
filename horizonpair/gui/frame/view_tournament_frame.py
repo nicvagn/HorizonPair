@@ -14,8 +14,6 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from time import sleep
-from tkinter import *
 from tkinter import ttk
 
 from horizonpair.chess import Colour, Match, Player, Result
@@ -39,7 +37,7 @@ class ViewTournamentFrame(ttk.Frame):
         """
         super().__init__(parent)
         self.parent = parent
-        self.grid(sticky=(N, S, E, W))
+        self.grid(sticky="nsew")
         # frame config
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
@@ -47,12 +45,12 @@ class ViewTournamentFrame(ttk.Frame):
         self["padding"] = 50  # internal padding inside the frame
         # WIDGETS
         ttk.Label(self, text=f"{tournament.name}", font=("tkCaptionFont", 24)).grid(
-            row=0, column=0, sticky=(N, W, E)
+            row=0, column=0, sticky="nsew"
         )
 
         self.tournament = tournament
         self.tournament_frame = TournamentWidget(self, self.tournament)
-        self.tournament_frame.grid(column=0, row=1, sticky=(N, W, E, S))
+        self.tournament_frame.grid(column=0, row=1, sticky="nsew")
 
         self.roster_widget = RosterWidget(self, self.tournament.get_roster())
-        self.roster_widget.grid(column=1, row=1, sticky=(N, W, E, S))
+        self.roster_widget.grid(column=1, row=1, sticky="nsew")

@@ -13,21 +13,21 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-from time import sleep
-from tkinter import *
+import tkinter as tk
 from tkinter import ttk
 
 from horizonpair.chess import Player
-from horizonpair.gui import (
+from horizonpair.gui.frame import (
     AddPlayerFrame,
     CreateTournamentFrame,
+    SelectTournamentFrame,
     ViewTournamentFrame,
     WelcomeFrame,
 )
 from horizonpair.tournament import Roster, Tournament
 
 
-class App(Tk):
+class App(tk.Tk):
     """The root application"""
 
     def __init__(self):
@@ -36,16 +36,20 @@ class App(Tk):
         # No tearoff menus
         self.option_add("*tearOff", False)
 
-        menubar = Menu(self)
-        menu_home = Menu(menubar)
-        menu_edit = Menu(menubar)
-        menubar.add_cascade(menu=menu_home, label="Load")
+        menubar = tk.Menu(self)
+        menu_file = tk.Menu(menubar)
+        menubar.add_cascade(menu=menu_file, label="File")
+        menu_file.add_cascade(label="New", command=self.create_tournament)
+        menu_file.add_cascade(label="Load", command=self.load_tournament)
         menubar.add_command(label="Home", command=self.home)
 
         self.config(menu=menubar)
 
         # the root frame of the gui
         self.root_frame = ttk.Frame(self)
+
+        root_frame = self.root_frame
+        root_frame.grid(row=0, column=0, sticky="nsew")
 
         self.current_frame = None
 
@@ -69,7 +73,7 @@ class App(Tk):
         if frame is not None:
             self.clear()
             self.current_frame = frame
-            self.current_frame.grid(row=0, column=0, sticky=(N, S, E, W))
+            self.current_frame.grid(row=0, column=0, sticky="nsew")
 
     def home(self):
         """Go to the home frame"""
@@ -80,9 +84,16 @@ class App(Tk):
         # display the create tournament frame
         self.swap_frame(CreateTournamentFrame(self))
 
-    def view_tournament(self):
-        """View a tournament"""
-        # TODO: ADD ABILITY TO CHOOSE A TOURNAMENT TO VIEW
+    def load_tournament(self):
+        """Load a tournament from the database. Shows the view tournament frame"""
+        self.swap_frame(SelectTournamentFrame(self))
+
+    def view_tournament(self, tournament: Tournament):
+        """View a tournament
+        Args:
+            tournament: the tournament to view
+        """
+        self.swap_frame(ViewTournamentFrame(self, tournament))
 
     def show_add_player_frame(self):
         """Show the add player frame"""
@@ -90,7 +101,10 @@ class App(Tk):
         self.swap_frame(AddPlayerFrame(self))
 
     def add_player(self, player: Player):
-        """Add a player to the internal players db"""
+        """Add a player to the internal players db
+        Args:
+            player: the player to add
+        """
         # TODO: ADD A PLAYER TO A PERSISTANT DATABASE
 
         self.players.append(player)
