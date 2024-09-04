@@ -1,9 +1,10 @@
-#    HorizonPair: a program for assisting in creating and running chess tournaments
+#    HorizonPair: a program for assisting in creating and running chess
+#    tournaments.
 #    Copyright (C) 2024 Nicolas Vaagen
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -54,20 +55,26 @@ class CTR:
         if tournament.pairing_system is Swiss:
             pairing_abriviation = "S"
         else:
-            # Round Robin is default, I think this works ie: I think there are only 2 options
+            # Round Robin is default,
+            # I think this works ie: I think there are only 2 options
             pairing_abriviation = "R"
 
+        """List with one index per CTR line"""
         self.ctr: List[str] = []
         self.ctr.append(
-            f'"{t.name}","{t.province}","0","{pairing_abriviation}","{t.date}","{
-                t.roster.number_of_players}","{t.td_cfc_id}","{t.to_cfc_id}"'
+            f'"{t.name}","{t.province}","0","{pairing_abriviation}","{t.date
+            }","{t.roster.number_of_players}","{t.td_cfc_id}","{t.to_cfc_id}"'
         )
 
         # add all matches to report
         for round in t.completed_rounds:
             for match in round.matches:
-                match_report = self.make_match_report(match, match.white_player)
-                match_report += self.make_match_report(match, match.black_player)
+                match_report = self.make_match_report(
+                    match, match.white_player
+                )
+                match_report += self.make_match_report(
+                    match, match.black_player
+                )
                 # append both players match reports to main report
                 for line in match_report:
                     self.ctr.append(line)
@@ -84,7 +91,9 @@ class CTR:
 
         except AssertionError:
             print("make_ctr_report: asked to write ctr file but no ctr data")
-            raise CtrCreationException("missing ctr data when asked to write file")
+            raise CtrCreationException(
+                "missing ctr data when asked to write file"
+            )
 
         # write the ctr report to file
         ctr_report = open("ctr_report.crt", "w")
@@ -130,10 +139,14 @@ if __name__ == "__main__":
         Player("Nicolas", CfcId("111111")),
         Player("Alex", CfcId("222222")),
         Player("Cyril", CfcId("333333")),
+        Player("BOB", CfcId("444444")),
     ]
     roster = Roster(player_list)
     t = Tournament(
-        name="HorizonPair", province="SK", roster=roster, pairing_system=Random()
+        name="HorizonPair",
+        province="SK",
+        roster=roster,
+        pairing_system=Random(),
     )
     print("=== matches ===")
     for i in range(5):
