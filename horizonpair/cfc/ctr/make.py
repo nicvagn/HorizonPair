@@ -109,13 +109,13 @@ class CTR:
 
         if match_winner == player:
             res = "W"
-            poins = 1
+            poins = "1.0"
         elif match_winner is None:
             res = "D"
-            poins = 0.5
+            poins = "0.5"
         else:
             res = "L"
-            poins = 0
+            poins = "0.0"
 
         # match report
         match_report: List[str] = []
@@ -131,6 +131,12 @@ class CTR:
 
         return match_report
 
+    def __str__(self) -> str:
+        ctr = ""
+        for line in self.ctr:
+            ctr += line + "\n"
+        return ctr
+
 
 # TESTING
 if __name__ == "__main__":
@@ -138,27 +144,30 @@ if __name__ == "__main__":
     player_list = [
         Player("Nicolas", CfcId("111111")),
         Player("Alex", CfcId("222222")),
-        Player("Cyril", CfcId("333333")),
-        Player("BOB", CfcId("444444")),
     ]
+    #     Player("Cyril", CfcId("333333")),
+    #     Player("BOB", CfcId("444444")),
+    # ]
     roster = Roster(player_list)
     t = Tournament(
         name="HorizonPair",
-        province="SK",
+        province="NB",
         roster=roster,
         pairing_system=Random(),
     )
-    print("=== matches ===")
-    for i in range(5):
-        print(f"Round {i+1}:")
-        t.current_round = t.pairing_system.pair(i, roster)
-
-        # conclude all the matches
-        for match in t.current_round.matches:
-            match.conclude(Result.DRAW)
-            print(match)
-
-        t.completed_rounds.append(t.current_round)
+    #    print("=== matches ===")
+    #    for i in range(5):
+    #        print(f"Round {i+1}:")
+    #        t.current_round = t.pairing_system.pair(i, roster)
+    #
+    #        # conclude all the matches
+    #        for match in t.current_round.matches:
+    #            match.conclude(Result.DRAW)
+    #            print(match)
+    #
+    #        t.completed_rounds.append(t.current_round)
+    #
+    t.current_round = t.pairing_system.pair(0, roster)
 
     print("=== ctr report ===")
     ctr = CTR(t)

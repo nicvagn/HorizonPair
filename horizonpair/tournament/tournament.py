@@ -81,7 +81,9 @@ class Tournament:
         self.current_round_num += 1
 
         # pair the next round according to the pairing system
-        new_round: Round = self.pairing_system.pair(self.current_round_num, self.roster)
+        new_round: Round = self.pairing_system.pair(
+            self.current_round_num, self.roster
+        )
 
         # add the newly completed round to the completed rounds
         self.completed_rounds.append(self.current_round)
